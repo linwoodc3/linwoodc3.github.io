@@ -1,37 +1,10 @@
-## Welcome to GitHub Pages
+## Linwood's Introduction and Motivation
 
-You can use the [editor on GitHub](https://github.com/linwoodc3/linwood.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Motivation is hard to measure.   It's one of those intangible skills that everyone wants in a friend, coworker, or subordinate, but is also hard to find.  This page is a window into the topics and personal projects that motivate me every single day.  This journey to become an expert in data science is fueled by my unending motivation to work in the field I love. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Google and YouTube are my instructors.  Python and R are my preferred languages, where Python is my strongest language.  If I had to pick a specialty, it would be data analysis, data cleaning, and communication.  Quite often, a good project or product fails to materialize because the impact or outcome is not clearly communicated to decision makers.  My goal is to make the message clear and accurate.  
 
-### Markdown
+This page will provide  a few examples.  
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Top Projects
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/linwoodc3/linwood.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
