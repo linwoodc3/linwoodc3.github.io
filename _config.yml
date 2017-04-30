@@ -1,3 +1,9 @@
 theme: jekyll-theme-leap-day
 title: Linwood's Data Discovery
 description: The home base for all my projects, code, analytics, visualizations, and tips. Edit Add topics
+# Do not copy these file to the output directory
+exclude: [ README.md]
+name: Linwood Creekmore III
+markdown: kramdown
+gems:
+  - jekyll-seo-tag
