@@ -1,3 +1,7 @@
+
+
+# Spatial Context in Python: Reading Web-based or Local Shapefiles
+
 There's nothing more disconcerting than not knowing your location.
 
 Knowing your locations brings comfort. 
