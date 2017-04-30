@@ -1,10 +1,14 @@
-
+---
+author:
+  twitter: linwoodc3
+summary: This post introduces a utility function that can automatically read web-based or local shapefiles in zip format into the Python ecosystem.  It takes one line of code!
+---
 
 # Spatial Context in Python: Reading Web-based or Local Shapefiles
 
 There's nothing more disconcerting than not knowing your location.
 
-Knowing your locations brings comfort. 
+Knowing your location brings comfort. 
 
 We have all experienced it.  It's the panic that overtakes you when you don't recognize your surroundings.  The buildings and roads are unfamiliar.  You don't know where you are.  Naturally, you focus on getting to a familiar landmark or location.  Reaching that landmark brings a sense of relief.   Comfort.  Peace.  Because you know where you are on a map, it's easier to plot a course to your final destination.  
 
