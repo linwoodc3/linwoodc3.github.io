@@ -2,11 +2,24 @@
 title: "The Importance of Where: Adding Spatial Context Using Local or Web-based Shapefiles" 
 author:
   twitter: linwoodc3
+  dribbble:
+  email: valinvescap@gmail.com
+  facebook: 
+  flickr:
+  github: linwoodc3
+  instagram:
+  linkedin: https://www.linkedin.com/in/linwood-creekmore-iii-a2174538
+  pinterest:
+  rss: datajourney
+  twitter: linwoodc3
+  stackoverflow: users/4205207/linwoodc3
+  youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: u/0/+LinwoodCreekmore 
 summary: This post introduces a utility function that can automatically read web-based or local shapefiles in zip format into the Python ecosystem.  It takes one line of code!
 excerpt: "In the world of data science, we embrace the concept of spatial awareness and knowing where the data are (or datum is). In the same way that geospatial grounding (i.e. georeferenced data) brings clarity to a lost traveler, spatial context can bring clarity to a data set.  Moreover, this “where” does not always have to apply to a location on the earth’s surface . Spatial context (i.e. analytic geometry), or understanding data in the context of geometric space, is just as enlightening."
 ---
 
-## The Importance of "Where": Adding Spatial Context Using Local or Web-based Shapefile
+## The Importance of "Where": Adding Spatial Context Using Local or Web-based Shapefiles
 **Date:** {{ page.date | date_to_rfc822 }}<br><br>
 
 There is nothing worse than being lost.
@@ -118,7 +131,7 @@ plt.show()
 
 <center><img src="{{ site.url }}/assets/img/newyorkzips.png" alt="NY zipcodes" width="600" height="450"></center><br><br>
 
-Based on the shape of the new file, we are starting to understand the context of the data.  The higher concentration areas of our first plot correspond to the New York zip code shapes in our second plot.  We can do better. Next, we combine the two files using a [spatial join](http://geopandas.org/mergingdata.html?highlight=sjoin#spatial-joins) and find the origin zip code for each tweet. <br><br>
+Based on the shape of the new file, we are starting to understand the context of the data.  The higher concentration areas of our first plot correspond with shapes in our second plot.  We can do better. Next, we combine the two files using a [spatial join](http://geopandas.org/mergingdata.html?highlight=sjoin#spatial-joins) and find the origin zip code for each tweet. <br><br>
 
 ```python
 import geopandas as gpd

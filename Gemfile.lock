@@ -197,6 +197,7 @@ DEPENDENCIES
   github-pages
   jekyll-gist
   jekyll-seo-tag
+  jekyll-sitemap
 
 BUNDLED WITH
    1.14.6
