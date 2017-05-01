@@ -1,21 +1,22 @@
 ---
-title: "GitHub Gists for GIS in Python: Loading a Zipped Local or Web-based Shapefile with One Function" 
+title: "The Importance of Where: Adding Spatial Context Using Local or Web-based Shapefiles" 
 author:
   twitter: linwoodc3
 summary: This post introduces a utility function that can automatically read web-based or local shapefiles in zip format into the Python ecosystem.  It takes one line of code!
 excerpt: "In the world of data science, we embrace the concept of spatial awareness and knowing where the data are (or datum is). In the same way that geospatial grounding (i.e. georeferenced data) brings clarity to a lost traveler, spatial context can bring clarity to a data set.  Moreover, this “where” does not always have to apply to a location on the earth’s surface . Spatial context (i.e. analytic geometry), or understanding data in the context of geometric space, is just as enlightening."
 ---
 
-## GitHub Gists for GIS in Python: Loading a Zipped Local or Web-based Shapefile with One Function 
+## The Importance of "Where": Adding Spatial Context Using Local or Web-based Shapefile
 **Date:** {{ page.date | date_to_rfc822 }}<br><br>
 
-There is nothing worse than not knowing where you are.
+There is nothing worse than being lost.
 
-We have all experienced it.  It’s the panic that overtakes you when you don’t recognize your surroundings.  The buildings and roads are unfamiliar.  You don’t know where you are.  Naturally, you focus on getting to a familiar landmark or location.  Reaching that landmark brings a sense of relief.   Comfort.  Peace.  Because you know where you are on a map, it’s easier to plot a course to your final destination.
+We have all experienced it.  It’s the panic that overtakes you when you don’t recognize your surroundings.  The buildings and roads are unfamiliar.  You don’t know where you are. You have no spatial context. Naturally, you focus on getting to a familiar landmark or location.  Reaching that landmark brings a sense of relief.   Comfort.  Peace.  Because you know where you are on a map, it’s easier to plot a course to your final destination.
 
 In the world of data science, we embrace the concept of spatial awareness and knowing where the data are (or datum is). In the same way that  familiar surroundings (i. e. [geo-referenced data](https://en.wikipedia.org/wiki/Georeferencing)) brings clarity to a lost traveler, spatial context can bring clarity to a data set.  This “where” does not always have to apply to a location on the earth’s surface. Spatial context (i.e. [analytic geometry](https://en.wikipedia.org/wiki/Analytic_geometry)), or understanding data in geometric space, is just as enlightening.
 
-[Ansecombe’s quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) is a great example. Despite having nearly same summary statistics, the plots are nowhere near same.  This is a reminder to plot your data before drawing a conclusion.  It can prevent costly errors. 
+## Anscombe's Quartet - The Importance of Spatial Context
+[Anscombe’s quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) is a great example. Despite having nearly same summary statistics, the plots are nowhere near same.  This is a reminder to plot your data before drawing a conclusion.  It can prevent costly errors. 
 
 Python's [`seaborn` library](https://seaborn.pydata.org/) includes this data set, and we load it and compute the summary statistics. Each column is a different data set, and it's clear that the numbers are nearly identical.<br><br>
 
@@ -48,6 +49,8 @@ StdDev of Y | 2.032|2.032|2.030|2.031
 
 The plots are very different.  Again, this is a reminder that you should plot your data and see if you gain any new insights.
 
+## Adding Complementary Data
+
 That small detour was to prove the power of spatial context and set the stage for my Github Gist.  In this day and age of smartphones, geolocation services, and public data streams, geospatial data is easy to find. But getting the data is not the goal. Drawing meaning from the data is our focus.  Lucky for us, the data is referenced to a spot on the earth, but we need a complementary data set with features of the earth or physical locations to really add context.  A dump of tweets with latitude and longitude pairs are just dots plotted on a map.  But, add a basemap or underlying spatial file, and you understand **where** users were when they tweeted.  
 
 I made a Github Gist that helps in this very area.  All you have to do is pass a string as an argument, and regardless of whether the string points to a local or web-based file, you return a spatial object.  The big benefit?  This function is focused on handling zipped shapefiles!  If you work with in the geosptial arena, you are quite accustomed to zipped shapefile data. 
@@ -56,6 +59,9 @@ Here is the Gist:<br><br>
 
 {% gist linwoodc3/72b2f24b6d2ff6ffde1597f1ca2dea3f %}
 <br><br>
+
+## Demonstrating the Shapefilereader function
+
 We will walk through a quick demo.  Assume we have a `geopandas` data set of tweets passed to us from a colleague, and she only tells us the tweets originated in New York.  She asks for our help in finding the origin zip code for each tweet.  Here are the first 10 rows of the data:<br><br>
 
 ```python
@@ -155,6 +161,6 @@ ZIPCODE|tweet count
   10014|        120
   10011|         99
   
-  
+## Conclusion
 <br><br>As shown above, spatial clarity can improve your understanding of data.  Feel free to use the shapefilereader function to add complementary data sets to your geospatial analysis tasks. We combined our source data with a publicly available shapefile.  And in the end, we were able to answer our target questions in visual and tabular format.  Try a similar workflow on one of your datasets! 
 
