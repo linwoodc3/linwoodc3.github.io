@@ -17,24 +17,9 @@ In the world of data science, we embrace the concept of spatial awareness and kn
 
 [Ansecombe’s quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) is a great example. Despite having nearly same summary statistics, the plots are nowhere near same.  This is a reminder to plot your data before drawing a conclusion.  It can prevent costly errors. 
 
-Python `seaborn` includes this data set, and we load it and compute the summary statistics.  Each row represents a data set; you can see that numbers are nearly identifical.  
-
-```python
-import seaborn as sns
-
-#load the data
-df = sns.load_dataset('anscombe')
-
-#perform groupby, compute summary, and unstack
-ddf = df.groupby('dataset').describe().unstack()
-
-# print the results
-print(ddf)
-```
-
 <center><img src="{{ site.url }}/assets/img/anscombe.png" alt="Anscombe's Quartet" width="600" height="450"></center>
 
-![]("{{sit.url }}/assets/img/ansecombe.html")
+test
 ```python
 import pandas as pd
 ```
