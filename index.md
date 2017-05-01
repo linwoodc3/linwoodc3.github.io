@@ -1,4 +1,4 @@
-## Linwood's Introduction and Motivation
+### Welcome to the Data Journey of a Data Junkie
 
 Motivation is hard to measure.   
 
@@ -6,7 +6,7 @@ It's one of those intangible skills that everyone wants in a friend, coworker, o
 
 Google and YouTube are my instructors.  Python and R are my preferred tools, where Python is my strongest language. Time is my only limitation.
 
-### Top Projects
+# Projects and Posts
 
 <ul>
   {% for post in site.posts %}

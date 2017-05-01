@@ -2,8 +2,34 @@ theme: jekyll-theme-leap-day
 title: Linwood's Data Discovery
 description: The home base for all my projects, code, analytics, visualizations, and tips. Edit Add topics
 # Do not copy these file to the output directory
-exclude: [ README.md]
+# URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+exclude: [ README.md Untitled.ipynb]
 name: Linwood Creekmore III
 markdown: kramdown
+google_analytics: UA-98331272-1
+show_downloads: true
+social:
+  name: Linwood Creekmore
+  links:
+    - https://twitter.com/linwoodc3
+    - https://www.linkedin.com/in/linwood-creekmore-iii-a2174538
+    - https://plus.google.com/u/0/+LinwoodCreekmore
+    - https://github.com/linwoodc3
+footer-links:
+  dribbble:
+  email: valinvescap@gmail.com
+  facebook: 
+  flickr:
+  github: linwoodc3
+  instagram:
+  linkedin: https://www.linkedin.com/in/linwood-creekmore-iii-a2174538
+  pinterest:
+  rss: datajourney
+  twitter: linwoodc3
+  stackoverflow: users/4205207/linwoodc3
+  youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: u/0/+LinwoodCreekmore 
 gems:
   - jekyll-seo-tag
+  
