@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Adding Spatial Context Using Local or Web-based Shapefiles" 
+redirect_from:
+  - /2017/04/29/The-Imporance-of-Where-Adding-Spatial-Context-Using-Local-or-Web-based-Shapefiles.html
 author:
   twitter: linwoodc3
   dribbble:

@@ -196,6 +196,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-gist
+  jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
 
