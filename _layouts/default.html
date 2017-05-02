@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=2, user-scalable=yes">
 
   </head>
   <body>
@@ -40,17 +41,61 @@
 
     <div class="wrapper">
       <nav>
-        <ul></ul>
+        <ul>
+          {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
+						{% for p in navigation_pages %}
+							{% if p.navigation_weight %}
+								<li>
+									<a href="{{ p.url }}" {% if p.url == page.url %}class="active"{% endif %}>
+										{{ p.title }}
+									</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+        </ul>
       </nav>
       <section>
         {{ content }}
 
       </section>
       <footer>
+          
+          
+          
+          
+          
         {% if site.github.is_project_page %}
           <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+          
+          {% if site.github_username %}
+  <li>
+    <a href="https://github.com/{{ site.github_username }}">
+      <i class="fa fa-github"></i> GitHub
+    </a>
+  </li>
+{% endif %}
+          {% if site.twitter_username %}
+  <li>
+    <a href="https://twitter.com/{{ site.twitter_username }}">
+      <i class="fa fa-twitter"></i> Twitter
+    </a>
+  </li>
+{% endif %}
+          {% if site.linkedin_username %}
+  <li>
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+      <i class="fa fa-linkedin"></i> LinkedIn
+    </a>
+  </li>
+{% endif %}
+          {% if site.google_plus_username %}
+  <li>
+    <a href="https://plus.google.com/{{ site.google_plus_username }}">
+      <i class="fa fa-google-plus"></i> Google+
+    </a>
+  </li>
+{% endif %}
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->

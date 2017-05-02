@@ -1,6 +1,6 @@
 theme: jekyll-theme-leap-day
-title: Linwood's Data Discovery
-description: The home base for all of Linwood Creekmore's data science projects, code, analytics, visualizations, and tips.
+title: Data Junkie
+description: A place of data science projects, code, analytics, visualizations, and tips.
 # Do not copy these file to the output directory
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://lh3.googleusercontent.com/-C5reTxGkmlY/VBxM7TKwh7I/AAAAAAAAA5w/-nq2eAJ58jcSUvXNYyo8LyX1CGqysE_rwCEw/w140-h139-p/LinwoodCartoon.tif
@@ -9,11 +9,17 @@ url: https://linwoodc3.github.io/
 name: Linwood Creekmore III
 markdown: kramdown
 google_analytics: UA-98331272-1
-show_downloads: true
+show_downloads: false
 sitemap: true
+twitter_username:     linwoodc3
+github_username:      linwoodc3
+linkedin_username:    linwood-creekmore-iii-a2174538
+google_plus_username: u/0/+LinwoodCreekmore
+facebook_username:    
+dribbble_username:
 author:
     twitter: linwoodc3
-    picture:
+    picture: https://lh3.googleusercontent.com/-C5reTxGkmlY/VBxM7TKwh7I/AAAAAAAAA5w/-nq2eAJ58jcSUvXNYyo8LyX1CGqysE_rwCEw/w140-h139-p/LinwoodCartoon.tif
 social:
   name: Linwood Creekmore
   links:

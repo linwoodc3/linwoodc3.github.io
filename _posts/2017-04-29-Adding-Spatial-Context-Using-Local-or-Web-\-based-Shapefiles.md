@@ -1,5 +1,6 @@
 ---
-title: "The Importance of Where: Adding Spatial Context Using Local or Web-based Shapefiles" 
+layout: post
+title: "Adding Spatial Context Using Local or Web-based Shapefiles" 
 author:
   twitter: linwoodc3
   dribbble:
@@ -18,9 +19,6 @@ author:
 summary: This post introduces a utility function that can automatically read web-based or local shapefiles in zip format into the Python ecosystem.  It takes one line of code!
 excerpt: "In the world of data science, we embrace the concept of spatial awareness and knowing where the data are (or datum is). In the same way that geospatial grounding (i.e. georeferenced data) brings clarity to a lost traveler, spatial context can bring clarity to a data set.  Moreover, this “where” does not always have to apply to a location on the earth’s surface . Spatial context (i.e. analytic geometry), or understanding data in the context of geometric space, is just as enlightening."
 ---
-
-## The Importance of "Where": Adding Spatial Context Using Local or Web-based Shapefiles
-**Date:** {{ page.date | date_to_rfc822 }}<br><br>
 
 There is nothing worse than being lost.
 
