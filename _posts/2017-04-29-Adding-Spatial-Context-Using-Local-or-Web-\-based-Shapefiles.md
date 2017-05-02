@@ -20,7 +20,7 @@ summary: This post introduces a utility function that can automatically read web
 excerpt: "In the world of data science, we embrace the concept of spatial awareness and knowing where the data are (or datum is). In the same way that geospatial grounding (i.e. georeferenced data) brings clarity to a lost traveler, spatial context can bring clarity to a data set.  Moreover, this “where” does not always have to apply to a location on the earth’s surface . Spatial context (i.e. analytic geometry), or understanding data in the context of geometric space, is just as enlightening."
 ---
 
-There is nothing worse than being lost.
+There is nothing worse than being lost. 
 
 We have all experienced it.  It’s the panic that overtakes you when you don’t recognize your surroundings.  The buildings and roads are unfamiliar.  You don’t know where you are. You have no spatial context. Naturally, you focus on getting to a familiar landmark or location.  Reaching that landmark brings a sense of relief.   Comfort.  Peace.  Because you know where you are on a map, it’s easier to plot a course to your final destination.
 
