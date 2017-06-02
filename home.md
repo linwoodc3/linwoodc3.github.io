@@ -13,7 +13,8 @@ It's one of those intangible skills that everyone wants in a friend, coworker, o
 
 Google and YouTube are my instructors.  Python and R are my preferred tools. Time is my only limitation.
 
-# Projects and Posts
+
+### Blog Posts and Projects
 
 <ul>
   {% for post in site.posts %}
@@ -23,3 +24,5 @@ Google and YouTube are my instructors.  Python and R are my preferred tools. Ti
     </li>
   {% endfor %}
 </ul>
+
+

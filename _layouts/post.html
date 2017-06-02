@@ -9,3 +9,11 @@ layout: default
 		{{ content }}
 	</div>
 </div>
+{% include disqus.html %}
+
+{% if post.tags contains 'draft' %}
+  <!-- This is a draft. Allow blog to be displayed in draft blog lists. Use in blog page layout to display a warning that the page is a draft. -->
+{% else %} 
+  <!-- This is not a draft. Allow post to be displayed in blog lists and RSS feed --> 
+{% endif %}
+

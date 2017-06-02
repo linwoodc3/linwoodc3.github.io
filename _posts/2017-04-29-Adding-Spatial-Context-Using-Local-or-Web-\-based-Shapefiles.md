@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Adding Spatial Context Using Local or Web-based Shapefiles" 
+comments: true
 redirect_from:
   - /2017/04/29/The-Imporance-of-Where-Adding-Spatial-Context-Using-Local-or-Web-based-Shapefiles.html
 author:
@@ -57,7 +58,7 @@ StdDev of Y | 2.032|2.032|2.030|2.031
 
 <br><br>Very few differences right?  You would expect a plot to look very similar.  Let's look at a plot of the data. <br><br>  
 
-<center><img src="{{ site.url }}/assets/img/anscombe.png" alt="Anscombe's Quartet" width="600" height="450"></center><br><br>
+<center><img src="{{ site.url }}/assets/img/anscombe.png" alt="Anscombe's Quartet" ></center><br><br>
 
 
 There are very few similarities!  Again, this is a reminder that you should plot your data and see if you gain any new insights. Spatial context can help!
@@ -129,7 +130,7 @@ ny.plot(color='tan',ax=ax)
 plt.show()
 ```
 
-<center><img src="{{ site.url }}/assets/img/newyorkzips.png" alt="NY zipcodes" width="600" height="450"></center><br><br>
+<center><img src="{{ site.url }}/assets/img/newyorkzips.png" alt="NY zipcodes" ></center><br><br>
 
 Based on the shape of the new file, we are starting to understand the context of the data.  The higher concentration areas of our first plot correspond with shapes in our second plot.  It's useful, but we can do better. Let's combine the two files using a [spatial join](http://geopandas.org/mergingdata.html?highlight=sjoin#spatial-joins) and find the origin zip code for each tweet. <br><br>
 
@@ -158,7 +159,7 @@ ax.set_axis_off()
 plt.show()
 ```
 
-<center><img src="{{ site.url }}/assets/img/newyorkchoropleth.png" alt="NYchoropleth" width="600" height="450"></center><br><br>
+<center><img src="{{ site.url }}/assets/img/newyorkchoropleth.png" alt="NYchoropleth" ></center><br><br>
 And here are the first 10 rows of our tabular answer to the same question.<br>
 
 ZIPCODE|tweet count
