@@ -33,7 +33,9 @@ h3 {
 	font-size: 1.8em;
 	margin: 15px 0;
 }
-
+.imgContainer{
+    float:left;
+}
 img {
 	max-width: 100%;
 	height: auto;
@@ -304,7 +306,9 @@ input[type="submit"] {
     }
 }
 
-
+.imgContainer{
+    float:left;
+}
 
 /**
  * Site footer
