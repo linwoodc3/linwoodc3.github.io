@@ -54,7 +54,7 @@ This narrative story/data science tutorial provides a short introduction to a py
 ### Post Format
 Each narrative section is followed by a coding/description section.  I use a page splitter and different font to mark the switch from a narrative to a coding section.  
 
-What you may find interesting, is that I wrote the narrative on the Marawi crisis using news stories chronologically ordered by GDELT (pictures saved from news articles). Even more interesting, is how this Marawi story evolves from a simple raid to catch one person to a **full blown crisis** that has put a city on lockdown. We will cover exactly how I accessed the news data to build the story.  But first, let's take a minute to understand GDELT.  
+What you may find interesting, is that I wrote the narrative on the Marawi crisis using news stories chronologically ordered by GDELT (pictures saved from news articles). Every fact or detail came from stories returned by GDELT. Even more interesting, is how this Marawi story evolves from a simple raid to catch one person to a **full blown crisis** that has put a city on lockdown. We will cover exactly how I accessed the news data to build the story.  But first, let's take a minute to understand GDELT.  
 
 <br>
 <div class="image">
