@@ -331,7 +331,7 @@ muate2.sort_values('datezone')[['datezone','dateadded','sourceurl']]\
 <br><br>
 ### President Duterte Declares Martial Law
 <div><p style="font-family:courier;"><i>
-By 1045 pm PHT, President Rodrigo Duterte <a href ="https://en.wikipedia.org/wiki/Proclamation_No._216">declared 60 days of martial law in Marawi</a>.  He made the announcement while on official visit to Russia, and even shifted meetings with Russian offiicals to make an early return to the Philippines to deal with the rising crisis. Just ten hours after the start of clashes, the operation was far from complete. Two soldiers from the 103rd Brigade and one policeman had been killed. At least 12 other government personnel were injured during the battle. There were no reports of casualties on the other side.  The entire city was locked down.  Moreover, martial law applied to the whole island of Mindanao. </i></p> 
+By 1045 pm PHT, President Rodrigo Duterte <a href ="https://en.wikipedia.org/wiki/Proclamation_No._216">declared 60 days of martial law in Marawi</a>.  He made the announcement while on official visit to Russia, and even shifted meetings with Russian officials to make an early return to the Philippines to deal with the rising crisis. <br><br>Just ten hours after the start of clashes, the operation was far from complete. Two soldiers from the 103rd Brigade and one policeman had been killed and at least 12 other government personnel were injured during the battle. There were no reports of casualties on the other side.  And if that wasn't enough, the entire city was locked down.  Duterte's martial law applied to the whole island of Mindanao. </i></p> 
 
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/Duterte.jpeg" alt="Duterte" ></center>
