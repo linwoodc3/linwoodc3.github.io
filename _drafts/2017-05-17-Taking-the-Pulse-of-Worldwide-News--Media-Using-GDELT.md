@@ -49,7 +49,7 @@ That man is Isnilon Hapilon,  the leader of the infamous <a href="https://en.wik
 <br><br>
         
 # Code/Tutorial Introduction
-This narrative story/data science tutorial provides a short introduction to a python client I built to access and wrangle [Global Database of Events, Language, and Tone (GDELT)](http://www.gdeltproject.org/about.html) data in the Python ecosystem.  Hopefully, you will get a good story out of this too.  For others considering writing a tutorial, I hope you take this format up as well. Data scientists and data engineers need to be well versed in the art of writing.  Narratives provide great practice!
+This narrative story/data science tutorial provides a short introduction to a python client I built to access and wrangle [Global Database of Events, Language, and Tone (GDELT)](http://www.gdeltproject.org/about.html) data in the Python ecosystem.  Hopefully, you will get a good story out of this too.  For others considering writing a tutorial, I hope you take this format up as well. Data scientists and data engineers need to be well versed in the art of writing.  Narratives provide great practice!  You can [download the notebook for this tutorial here](https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/gdeltPyR%20Tutorial%20Notebook.ipynb).
 
 ### Post Format
 Each narrative section is followed by a coding/description section.  I use a page splitter and different font to mark the switch from a narrative to a coding section.  
