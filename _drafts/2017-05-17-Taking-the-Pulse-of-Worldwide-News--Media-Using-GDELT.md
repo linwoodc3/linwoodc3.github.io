@@ -616,69 +616,10 @@ In other words, who avoids repeating the same information in different articles 
 
 >  **Pity Party Pitstop:** One complaint I've seen about [GDELT](http://www.gdeltproject.org/) is, "Kalev H. Leetaru ([GDELT](http://www.gdeltproject.org/)'s creator) doesn't provide the content!"  To those folks, I say, **"Get it yourself; it's not that hard.**  I wrote this code below in 20 minutes and tested on [GDELT](http://www.gdeltproject.org/) urls.  Some content comes back; some doesn't. And another complaint involves duplicates.  Well, in this post, I gave you code to remove duplicates and isolate unique data providers and unique URLs.  If you know how to work with data, GDELT is a valuable tool.  If you are looking for the perfect data stream with zero interaction required on your part, I'll just say, "Me too!"  
 
-The code below works suprisingly well to pull content from A LOT of news websites.  It will work on news provider websites outside our Maute dataset, so feel free to reuse for other experiments. **Warning**.  Some websites have removed the content so you'll return an empty string.  Other websites may be blocked (every country's internet doesn't play well with others).  And, some websites use different tags for their HTML ([help me add try/except clauses using this Github Gist; let's work together!](https://gist.github.com/linwoodc3/e12a7fbebfa755e897697165875f8fdb)).  I did my best to return a message with a hint on why a URL doesn't return content. Here is the code: 
+The code below works surprisingly well to pull content from A LOT of news websites.  It will work on news provider websites outside our Maute dataset, so feel free to reuse for other experiments. **Warning**.  Some websites have removed the content so you'll return an empty string.  Other websites may be blocked (every country's internet doesn't play well with others).  And, some websites use different tags for their HTML ([help me add try/except clauses using this Github Gist; let's work together!](https://gist.github.com/linwoodc3/e12a7fbebfa755e897697165875f8fdb)).  I did my best to return a message with a hint on why a URL doesn't return content. Here is the code: 
 
 
-```python
-# placehoder to store completed urls; like caching
-done ={}
-def textgetter(url):
-    """Scrapes web news and returns the content
-    
-    Parameters
-    ----------
-    
-    url : str
-        Address to news report
-        
-    newstext: str
-        Returns all text in the "p" tag.  This usually is the content of the news story.
-    """
-    global done
-    
-    # regex for url check
-    s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
-    
-    # check that its an url
-    if s.search(url):
-        if url in done.keys():
-            return done[url]
-            pass
-        else:
-            
-            # Make the call to the new story
-            r  = requests.get(url)
-            # check for a good response; return message otherwise
-            if r.status_code != 200:
-                done[url]="Unable to reach website."
-                return {url:"Unable to reach website."}
-            # store bytes of message in variable
-            data = r.content
-            # parse HTML 
-            soup = BeautifulSoup(data,'html.parser')
-            # strip paragraphs from HTML and join into a string
-            newstext = " ".join([l.text for l in soup.find_all('p')])
-            # add to done dictionary to prevent duplication
-            done[url]=newstext
-            # delete the response; save memory
-            del r
-            # check if return is longer than average sentence
-            if len(newstext)>200:
-                return {url:newstext}
-            else:
-                # check for another place where text is stored
-                newstext = " ".join([l.text for l in soup.find_all('div',class_='field-item even')])
-                done[url]=newstext
-                # check for length; must be longer than a sentence
-                if len(newstext)>200:
-                    return {url:newstext}
-                else:
-                    # if all fails, return message
-                    return {url: "No text returned"}
-    else:
-        # if we don't pass very first test; not a url
-        return {url:"This is not a proper url."}
-```
+{% gist linwoodc3/e12a7fbebfa755e897697165875f8fdb %} 
 
 Just to be sure, I'll also provide an example on how to run the function. [I (and people smarter than me) advise moving outside of the dataframe and parallelizing this function call](https://tomaugspurger.github.io/modern-4-performance.html).  I use [`concurrent futures` for this task in favor of the library's simplicity](https://github.com/pydata/parallel-tutorial/blob/master/notebooks/01-map.ipynb).
 
