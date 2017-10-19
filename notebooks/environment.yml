@@ -1,0 +1,16 @@
+name: gdeltblog
+dependencies:
+- python=3
+- matplotlib
+- pandas
+- numpy
+- scipy
+- beautifulsoup4
+- requests
+- notebook
+- ipython
+- pip
+- pip:
+    - pytz
+    - tzwhere
+    - gdelt
