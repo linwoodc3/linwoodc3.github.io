@@ -136,7 +136,18 @@ With the shooter neutralized, responders tended to victims and the world searche
 <br><br>
 ## Pythonic Access to Worldwide GeoReferenced News
 
-In the same way that officers relied on training and teamwork to locate the shooter, we need a reliable tool to programmatically access GDELT data.  That's where <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> comes in .  <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how new events spreads across the world in time and space. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. To install `gdeltPyR`, simply run:
+In the same way that officers relied on training and teamwork to locate the shooter, we need a reliable tool to programmatically access GDELT data.  That's where <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> comes in .  <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how new events spreads across the world in time and space. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. 
+
+### Set up Environment for Code in Tutorial
+
+You can set up the environment to follow along with a simple line of code.  First, <a href="https://conda.io/docs/user-guide/install/index.html" target="_blank">make sure you have Anaconda installed</a>. Then, download my environment.yml file, start a terminal session from the directory where the file is downloaded, and type:
+```bash
+conda env create; source activate gdeltblog
+
+```
+That should install all the dependencies. 
+
+If you only want to install `gdeltPyR`, in a terminal session run:
 
 ```bash
 pip install gdelt
@@ -150,6 +161,7 @@ Not all new events work well with <a href="https://github.com/linwoodc3/gdeltPyR
 Outside of making sure your topic is covered in GDELT, <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is easy to use and only requires a date when your event of interest occurs.  In the future, <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> will leverage <a href="https://cloud.google.com/bigquery/" target="_blank">Google’s BigQuery</a>, providing a way to query a specific city, landmark, actor, or CAMEO event code over any amount of time. Additionally, I will be adding a feature to query by specific Local Time or UTC time.
 
 The Las Vegas shooting occurred on October 1, 2017 at 22:08 PDT. GDELT uses UTC datetimes, so this event has a +7 hour difference in GDELT, putting our target timeframe in the early hours of October 2.
+ 
 
 Let’s set up the module and libraries:
 
