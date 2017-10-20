@@ -27,7 +27,6 @@ excerpt: <br><br> <br><br>It all started a few minutes after 10 pm on October 1s
 <div><center><font size=".5"><b>Image: The grounds at the Route 91 Harvest festival on Las Vegas Boulevard South in Las Vegas on Saturday, Sept. 30, 2017. <a href="https://en.wikipedia.org/wiki/Mandalay_Bay" target="_blank"> Mandalay Bay Hotel and Casino</a> can be seen in the background behind the stage. <br><i>Source: http://news3lv.com/, file</i></b> </font></center></div>
 <br>
 </div>
-## Terror on the Strip
 <body style="background-color:powderblue;">
 <p style="font-family:courier;"><i>It all started a few minutes after 10 pm on October 1st.<br><br>
 
@@ -36,41 +35,36 @@ The gunshots sounded like firecrackers at first.  People in the crowd didn't und
 "That's gunshots," a man said on a cellphone video in the nearly half-minute of silence and confusion that followed. Then the pop-pop-pop noise resumed. And pure terror set in.<br><br>
 
 
-For reasons that remain unknown,  fired on a crowd of 22,000 for 10 minutes unhindered in 40- to 50-round bursts from his 32nd floor room of the <a href="https://en.wikipedia.org/wiki/Mandalay_Bay" target="_blank"> Mandalay Bay Hotel and Casino</a>. Paddock had at least 20 guns and hundreds of rounds of ammunition — some with scopes — in his hotel room, and busted out windows with a hammer-like object to create his sniper's perch roughly hundreds of yards from the <a href="https://en.wikipedia.org/wiki/Route_91_Harvest" target="_blank">Route 91 Harvest Festival of country music</a>. Analysis of the shooting video showed Paddock fired a staggering 280 rounds in one 31-second span.<br><br>
+For reasons that remain unknown,  <a href="https://en.wikipedia.org/wiki/Stephen_Paddock" target="_blank">Stephen Paddock, a 64-year old white male, </a>fired on a crowd of 22,000 for 10 minutes unhindered in 40- to 50-round bursts from his 32nd floor room of the <a href="https://en.wikipedia.org/wiki/Mandalay_Bay" target="_blank"> Mandalay Bay Hotel and Casino</a>. Paddock had at least 20 guns and hundreds of rounds of ammunition — some with scopes — in his hotel room, and busted out windows with a hammer-like object to create his sniper's perch roughly hundreds of yards from the <a href="https://en.wikipedia.org/wiki/Route_91_Harvest" target="_blank">Route 91 Harvest Festival of country music</a>. Analysis of the shooting video showed Paddock fired a staggering 280 rounds in one 31-second span.<br><br>
 
-
-<br>
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/runningcrowd.jpg" alt="Chaos in the crowd" ></center>
 <div><center><font size=".5"><b>Image: Chaos as shots rang out at the Route 91 Harvest Country Music Festival in Las Vegas. <br><i>Source: David Becker/Getty Images</i></b> </font></center></div>
-<br><br>
+
 </div>
 </i></p>     
 </body>
 <body style="background-color:powderblue;">
 <p style="font-family:courier;"><i>
-
-
 While some concertgoers hit the ground, others forced their way to the crowded exits, shoving through narrow gates, trampling one another, and climbing over fences. They had little cover and no easy way to escape. Those who were not hurt hid behind concession stands or crawled under parked cars. The scene was pure chaos. Bodies were lying on the artificial turf installed in front of the stage, and people were screaming and crying. The sound of people running on the bleachers added to the confusion, leading some of the people still present to suspect the concert was being invaded with multiple shooters. <br><br>
 
 At 10:14 p.m., an officer said on his radio that he was pinned down against a wall on Las Vegas Boulevard with 40 to 50 people."We can't worry about the victims," an officer said at 10:15 p.m. "We need to stop the shooter before we have more victims. Anybody have eyes on him ... stop the shooter." <br><br>
 
  
-Police frantically tried to locate the shooter and determine whether the gunfire was coming from <a href="https://www.google.com/maps/search/mandalay+bay+hotel+luxor+hotel/@36.0924795,-115.1786158,17z/data=!3m1!4b1" target="_blank">Mandalay Bay or the neighboring Luxor hotel</a>. Every second was precious.  Any time wasted looking in the wrong hotel resulted in more time to reload and unleash a volley of bullets on the terrified crowd below.
+Police frantically tried to locate the shooter and determine whether the gunfire was coming from <a href="https://s.yimg.com/ny/api/res/1.2/NK2pyf1FpkmaJzgSyiYOlQ--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NjUwO2g9NDg4/http://globalfinance.zenfs.com/en_us/Finance/US_AFTP_SILICONALLEY_H_LIVE/Heres_what_we_know_about-a9d6cb39d84dcf2be0adc2c66844faa3" target="_blank">Mandalay Bay or the neighboring Luxor hotel</a>. Every second was precious.  Any time wasted looking in the wrong hotel resulted in more time to reload and unleash a volley of bullets on the terrified crowd below.
 <br>
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/runningCops.jpg" alt="Police taking cover" ></center>
-<div><center><font size=".5"><b>Image: Las Vegas police running along the streets outside the festival grounds of the Route 91 Harvest festival. <br><i>Source: John Locher/AP Photo</i></b> </font></center></div>
-<br><br>
+<div><center><font size=".5"><b>Image: Heavily armed officers frantically search for the shooter. <br><i>Source: John Locher/AP Photo</i></b> </font></center></div>
+
 </div>
 </i></p>     
 </body>
 
 <hr>
-<br>
         
 # Code/Tutorial Introduction
-Horrible flash-in-the-pan events, such as the Las Vegas active shooter crisis, happen infrequently in specific cities.  However, when looking at destabilizing events on a national or global scale, we learn that these types of events are a regular occurrence.  In the past, getting information on these events depended on the location of the event, your proximity to the event, and the likelihood of a news provider in your region (and language) covering the event. But the arrival of the information age has made it possible to learn about these events in real time regardless of location.  Services such as <a href="https://www.gdeltproject.org/" target="_blank"> Global Database of Events, Language, and Tone (GDELT)</a> track these events in remote locations across the globe.<br><br>  
+Horrible flash-in-the-pan events, such as the Las Vegas active shooter crisis, happen infrequently in specific cities.  However, when looking at destabilizing events on a national or global scale, we learn that these types of events are a regular occurrence.  In the past, getting information on these events depended on the location of the event, your proximity to the event, and the likelihood of a news provider in your region (and language) covering the event. But the arrival of the information age has made it possible to learn about these events in real time regardless of location.  Services such as <a href="https://www.gdeltproject.org/" target="_blank"> Global Database of Events, Language, and Tone (GDELT)</a> track these events in remote locations across the globe.  **More importantly, everything you see in this tutorial can be done for foreign language new media; GDELT works with more than English language**.<br><br>  
 
 This tutorial shows how the mining of auto-parsed newstories can keep you (or your client) informed of the evolving security sitiaton in a place of interest. Included is a short introduction to a python client I built to access and wrangle parsed news stories using <a href ="http://www.gdeltproject.org/about.html" target="_blank">GDELT</a>. By the end of this tutorial, you will have the tools needed to build a timeline of events using Python and `gdeltPyR`. For others considering writing a tutorial, try the narrative format we will use for this post. Data scientists and data engineers need to be well versed in the art of writing and narratives provide great practice! You can <a href="https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/gdeltPyR%20Tutorial%20Notebook.ipynb" target="_blank">download the notebook for this tutorial here</a>.
 
@@ -107,11 +101,11 @@ Now that we understand GDELT, let's jump back into the story.
 
 <p style="font-family:courier;"><i>
 
-Las Vegas responders continued their search for the shooter as the terrifying sound of quick-succesion gunshots engulfed the festival grounds. At least six officers searched Mandalay Bay hotel floor by floor before they found Paddock's room within minutes of the shooting. Paddock, a 64-year old resident of a Mesquite, Nevada retirement community, had apparently rented two rooms in the hotel four days before the massacre. As they closed in on his position, Paddock reportedly fired at the officers through the door before <a href="https://www.lvmpd.com/en-us/Pages/default.aspx" target="_blank">Las Vegas Metropolitan Police Department (LVMPD) SWAT</a> used explosives to breach room 32135. Inside, they found Paddock dead. He had killed himself. After 10 minutes of terror that seemed like an eternity, it was finally over.<br><br>
+Las Vegas responders continued their search for the shooter as the terrifying sound of quick-succesion gunshots engulfed the festival grounds. At least six officers searched Mandalay Bay hotel floor by floor before they found Paddock's room within minutes of the shooting. Paddock, a 64-year old resident of a Mesquite, Nevada retirement community, had apparently rented a two-room suite in the hotel four days before the massacre. As police closed in on his position, Paddock shot and wounded a hotel security officer through the door before <a href="https://www.lvmpd.com/en-us/Pages/default.aspx" target="_blank">Las Vegas Metropolitan Police Department (LVMPD) SWAT</a> used explosives to breach room 32135. Inside, they found Paddock dead. He had killed himself. After 10 minutes of terror that seemed like an eternity, it was finally over.<br><br>
 
 The barrage from the 32nd floor lasted several minutes but the damage was extensive.  Initially, the number of fatalities had climbed to 20. Two hours later, the number had pushed past 50, making it the deadliest active shooter event in recent history. At least two off-duty police officers were shot and killed. Two other police officers were injured, one of them critically. Over 500 people were wounded.</i></p>
 
-<br>
+
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/girlnearambulance.jpg" alt="Girl in cowboy boots near ambulance" ></center>
 <div><center><font size=".5"><b>Image: A woman sits on the curb at the scene of the Las Vegas shooting. <br><i>Source: John Locher/AP Photo</i></b> </font></center></div>
@@ -121,7 +115,7 @@ The barrage from the 32nd floor lasted several minutes but the damage was extens
 
 <p style="font-family:courier;"><i>Tales of heroism and compassion emerged quickly: Couples held hands as they ran through the dirt lot. Some of the bleeding were carried out by fellow concertgoers. While dozens of ambulances took away the wounded, some people loaded victims into their cars and drove them to the hospital. At least 104 patients were treated at the University Medical Center.  Some of the youngest patients treated at the hospital were 16 and 17 years old. </i></p>
 
-<br><br>
+
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/carryWounded.jpg" alt="Carrying wounded girl`" ></center>
 <div><center><font size=".5"><b>Image: People assist a wounded woman at the scene of the Las Vegas shooting <br><i>Source: Chase Stevens/Las Vegas Review - Journal via AP</i></b> </font></center></div>
@@ -130,17 +124,16 @@ The barrage from the 32nd floor lasted several minutes but the damage was extens
 
 <p style="font-family:courier;"><i>Those who survived physically unscathed did what they could to escape.  People fleeing the concert grounds hitched rides with strangers, piling into cars and trucks. <br><br>
 
-With the shooter neutralized, responders tended to victims and the world searched for an answer to the most difficult question.  Why?  Why did he do it? A part of that answer would likely come from an answer to another question. Who was Stephen Paddock? </i></p><br><br>
+With the shooter neutralized, responders tended to victims and the world searched for an answer to the most difficult question.  Why?  Why did he do it? A part of that answer would likely come from an answer to another question. Who was Stephen Paddock? </i></p>
 
 <hr>
-<br><br>
-## Pythonic Access to Worldwide GeoReferenced News
 
+## Pythonic Access to Worldwide GeoReferenced News
 In the same way that officers relied on training and teamwork to locate the shooter, we need a reliable tool to programmatically access GDELT data.  That's where <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> comes in .  <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how new events spreads across the world in time and space. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. 
 
 ### Set up Environment for Code in Tutorial
 
-You can set up the environment to follow along with a simple line of code.  First, <a href="https://conda.io/docs/user-guide/install/index.html" target="_blank">make sure you have Anaconda installed</a>. Then, download my environment.yml file, start a terminal session from the directory where the file is downloaded, and type:
+You can set up the environment to follow along with a simple line of code.  First, <a href="https://conda.io/docs/user-guide/install/index.html" target="_blank">make sure you have Anaconda installed</a>. Then, download my <a href="https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/environment.yml" target="_blank">environment.yml</a> file, start a terminal session from the directory where the file is downloaded, and type:
 ```bash
 conda env create; source activate gdeltblog
 
@@ -203,11 +196,11 @@ gd = gdelt.gdelt()
 With our libraries set up, let's get back into the story.
 <br><br>
 <hr>
-<br><br>
+
 ### Who was Stephen Paddock?<br>
 <p style="font-family:courier;"><i>
 The search to understand Stephen Paddock started in the room where he died. Police recovered 23 guns (some with scopes) from his room where hotel workers, who were in and out of the room over several days, said they “saw nothing at all” hinting at the forthcoming rampage. At least two of the guns were modified with <a href="https://en.wikipedia.org/wiki/Bump_fire" target = "_blank">bump-stock devices</a> which can be attached to the stocks of semiautomatic guns to allow fully automatic gunfire. Investigators could tell from the arsenal, Paddock was intent on killing as many people as possible and the number of killed could have easily been higher if not for the quick response of the officers.  Despite the large discovery in the room, authorities still had little insight into "why" he did it. Paddock's death meant investigators would be on a scavenger hunt to discover a motive.
-</i></p><br><br>
+</i></p>
 
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/paddockFace.jpg" alt="Stephen Paddock" ></center>
@@ -228,23 +221,33 @@ In the midst of the hotel room search, officers executed a search warrant at Pad
 <div><p style="font-family:courier;"><i>
 
 
-With the physical search ongoing, officers turned to Paddock's close relationships and life.  He had a live-in girlfriend, 62-year old Marilou Danley, who was traveling in the Philippines when the massacre took place. Although Paddock used some of her identification, investigators clarified that they believed she was not involved with the shooting. He had been married, but was divorced 27 years ago.   His ex-wife, now living in Los Angeles County, California, said she had no contact with him for years.<br><br>
+With the physical search ongoing, officers turned to Paddock's close relationships and life.  He had a live-in girlfriend, 62-year old Marilou Danley, who was traveling in the Philippines when the massacre took place. Although Paddock used some of her identification to check into the hotel, investigators clarified that they believed she was not involved with the shooting. He married Peggy Okamoto in 1985 but the couple divorced in 1990, nearly three decades ago.   Peggy, now living in Los Angeles County, California, said she had no contact with him for years.<br><br>
+
+Financially, Paddock was a wealthy man.  He was worth more than $2 million, having made a good chunk of money from buying and selling real estate in several states, including California, Nevada, Florida and Texas. As a retiree, he had no children and plenty of money to play with. So he took up gambling.
+Paddock told neighbors he was a professional gambler and a prospector, and liked to bet big, wagering tens of thousands of dollars in a sitting. 
+<br><br>
 
 Perhaps Paddock had a checkered past or multiple run-ins with police?  But, investigators quickly learned this was not the case.  A criminal check provided little insight into Paddock’s motive or temperament because he had no criminal record and was not believed to be connected to any militant group. “We have no idea what his belief system was,” Lombardo said. “I can’t get into the mind of a psychopath.”<br><br>
 
-Next, officers looked into Paddock's arsenal.  The paper trail could possibly reveal something.  Initial research suggested Paddock had purchased  his firearms legally. A Mesquite store, Guns & Guitars, said it sold a gun to Paddock and that “he never gave any indication or reason to believe he was unstable or unfit at any time.” Additional research showed he had purchased multiple firearms in the past, with several of them purchased in California, according to law enforcement officials. Interestingly, those guns didn't appear to be among the 10 or more guns found in the Mandalay Bay hotel room.  Nothing materialized from a look into his guns.<br><br>
+Next, officers looked into Paddock's arsenal.  The paper trail could possibly reveal something.  Initial research suggested Paddock had purchased  his firearms legally. A Mesquite store, Guns & Guitars, said it sold a gun to Paddock and that “he never gave any indication or reason to believe he was unstable or unfit at any time.” Additional research showed he had purchased multiple firearms in the past, with several of them purchased in California, according to law enforcement officials. Interestingly, those guns didn't appear to be among the 10 or more guns found in the Mandalay Bay hotel room.  Nothing materialized from the gun angle.<br><br>
+</i></p><br>
 
-Then, the search moved to Paddock's hobbies.  He had a pilots license, but the medical certification required to fly legally had lapsed.  
+<div class="image">
+<center><img src="{{ site.url }}/assets/img/gunsNguitars.jpeg" alt="Girl in cowboy boots near ambulance" ></center>
+<div><center><font size=".5"><b>Image: Gun store where Paddock purchased some guns. <br><i>Source: Getty</i></b> </font></center></div>
+<br>
+</div>
 
-The look into Paddock's past was proving fruitless.  Nothing about Paddock, <a href="https://www.theguardian.com/us-news/2016/sep/20/gun-ownership-america-firearms-super-owners" target="_blank">including his ownership of over 40 guns</a>, seemed out of place or out of the ordinary. <br><br>
+<p style="font-family:courier;"><i>
+Then, the search moved to Paddock's hobbies.  He had two planes and held a private pilot's license but had not updated the medical certification required to fly since 2008 or 2010. According to relatives,  liked country music and went to concerts like the Route 91 Harvest festival where he killed so many Sunday night.<br><br>
 
-Officers decided to move to his family history next.  Perhaps his siblings or parents would provide clues
+The look into Paddock's past was proving fruitless.  Nothing about Paddock, <a href="https://www.theguardian.com/us-news/2016/sep/20/gun-ownership-america-firearms-super-owners" target="_blank">including his ownership of over 40 guns</a>, seemed out of place or out of the ordinary. Officers decided to move to his family history next.  Perhaps his siblings or parents would provide clues.
 
  </i></p>
 </div>
 
 <hr>
-<br><br>
+
 ## Using [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR)
 Unlike the difficulties investigators experienced in trying to find Paddock's motive, `gdeltPyR` is easy to understand and use. As stated earlier, we only need a date and information about the location to find the target data. After we filter the data to the relevant GDELT records, it’s just a “point, click, and read” job because the news stories will be categorized and organized by time.
 
@@ -424,7 +427,7 @@ print(vegastimedfil.set_index('zone')[['dates','sourceurl']].head())
 </table>
 <br><br>
 
-Finaly, to build a narrative, I simply read articles chronologically to see how the story unfolded in time. You can look at the url strings to skip irrelevant articles (first 6) or we could use time series analysis to identify a timeframe when the volume of news increases referencing our CAMEO code and location of interest. <br><br>
+Finally, to build a narrative, I simply read articles chronologically to see how the story unfolded in time. You can look at the url strings to skip irrelevant articles (first 6) or we could use time series analysis to identify a timeframe when the volume of news increases referencing our CAMEO code and location of interest. <br><br>
 
 While reviewing the articles, stay alert.  News providers will update information but use the same url.  Therefore, some stories will have more information than they had when originally published. GDELT preserves the original time of the article but not the content; you should see clues in the text to let you know the article was updated.  Additonally, it's important to be aware of <a href="https://en.wikipedia.org/wiki/Participation_bias" target="_blank">participation or non-response bias</a>.  There may be a news provider who did not have its data processed by GDELT, leading to faulty conclusion that one particular news provider is faster than another.  As always, be wary of data limitations.<br><br>
 
@@ -444,77 +447,115 @@ vegastimed.set_index(
 ```
 <br><br>
 Alternatively, you could use the the <a href="https://gist.github.com/linwoodc3/5c915fb6d9097e7e27d5b0bc1f047ba2" target = "_blank">`tzwhere` library with latitude and longitude</a> to find the timezone string for each GDELT record and append the time zone this way.  Warning! It is computationally expensive to run this timezone analysis over the entire dataset.
+
+Our data is ready for time series analysis, but let's jump back into the story to learn what police learned about the suspect from family interviews.  
 <hr>
-<br><br>
-### President Duterte Declares Martial Law
+### Still Seeking a Motive, Investigators Turn to Family and Friends
 <div><p style="font-family:courier;"><i>
-By 1045 pm PHT, President Rodrigo Duterte <a href ="https://en.wikipedia.org/wiki/Proclamation_No._216">declared 60 days of martial law in Marawi</a>.  He made the announcement while on official visit to Russia, and even shifted meetings with Russian officials to make an early return to the Philippines to deal with the rising crisis. <br><br>Just ten hours after the start of clashes, the operation was far from complete. Two soldiers from the 103rd Brigade and one policeman had been killed and at least 12 other government personnel were injured during the battle. There were no reports of casualties on the other side.  And if that wasn't enough, the entire city was locked down.  Duterte's martial law applied to the whole island of Mindanao. </i></p> 
+With little to show from all other leads, investigators hoped family members could provide some answers. At first glance, Stephen Paddock's parental history seemed to provide some clues.  <br><br>
+
+Decades before that fateful Sunday when Stephen perpetrated the worst active shooting event in US history, his father was on the FBI’s most-wanted list.  Benjamin Hoskins Paddock had been sentenced to 20 years in prison after being convicted of bank robbery and automobile theft.   In 1969 when Stephen was 15 years old, Benjamin escaped from prison in El Paso, Texas. He remained on the Most Wanted List from June 10, 1969 until May 5, 1977.  He was finally captured in 1978 while running a bingo parlor in Oregon. <br><br>
+</i></p><br>
 
 <div class="image">
-<center><img src="{{ site.url }}/assets/img/Duterte.jpeg" alt="Duterte" ></center>
-<div><center><font size=".5"><b>Image: Duterte declares martial law while on official travel in Russia.</b> </font></center></div>
+<center><img src="{{ site.url }}/assets/img/paddockDad.jpg" alt="father" ></center>
+<div><center><font size=".5"><b>Image: Mugshot of shooter's father, Benjamin Hoskins Paddock.</b> </font></center></div>
 <br>
 </div>
 
+<p style="font-family:courier;"><i>
+While the paternal history seemed promising, comments by Eric Paddock, Stephen Paddock's brother, suggested the father had little influence in his kid's upbringing. The answer was not encouraging. <br><br> 
 
-<div><p style="font-family:courier;"><i>The city had suffered its share of damage as well.  The Maute Group had burned a church, the Marawi City Jail, the Ninoy Aquino School and the Dansalan Junior College. Moreover,  Maute fighters had occupied the main street of Marawi city, Amai Pakpak Medical Center, City Hall, the city jail, and two bridges.</i></p>  
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">PHILIPPINES: Some houses being set on fire by <a href="https://twitter.com/hashtag/ISIS?src=hash">#ISIS</a> . People don&#39;t know where to go. They are stuck in <a href="https://twitter.com/hashtag/Marawi?src=hash">#Marawi</a>. <a href="https://t.co/5ZuOs8Gpec">pic.twitter.com/5ZuOs8Gpec</a></p>&mdash; Wcn Conflict News (@NewsWcn) <a href="https://twitter.com/NewsWcn/status/867012164275638276">May 23, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<div><p style="font-family:courier;"><i><br><br>Somehow, a raid on 15 gunmen turned into a city-wide conflict with an estimated 100 gunmen divided into groups of 10 in different locations.  This was the start of a long running conflict.<br><br>This was only the first 10-12 hours.</i></p>
+“I didn’t know him. We didn’t know him,” Eric Paddock said of his paternal father, Benjamin Paddock. “He was never with my mom. I was born on the run and that’s the last time he was ever associated with by our family.”<br><br>
 
+Another dead end.<br><br>
+
+As the only family member speaking publicly, Eric answered questions on his brother's frame of mind, which only raised **more** questions as to why Stephen picked up the gun that Sunday night.  His answers didn't get us any closer to a motive. 
+
+</i></p>
+
+<div class="image">
+<center><img src="{{ site.url }}/assets/img/brotherpaddock.jpeg" alt="brother" ></center>
+<div><center><font size=".5"><b>Image: The shooter's brother, Eric Paddock, talks with reporters.</b> </font></center></div>
+<br>
+</div>
+
+<p style="font-family:courier;"><i>
+While the paternal history seemed 
+
+"We have absolutely no idea whatsoever," Eric Paddock said to reporters gathered outside his home Monday morning. "We have no idea why he did this. And that's what you're going to find out. I can't imagine. When you guys found out why this happened, let us know. I have no idea whatsoever."<br><br>
+
+The response seemed totally out of touch with the man who killed over 50 and wounded over 500 innocent people.  Even more troubling, was the brother's comments on his brother's ownership of guns. He said Stephen was, “Not an avid gun guy at all...where the hell did he get automatic weapons? He has no military background."  But, as it turns out, Stephen had a lot of guns.  More importantly, he had modified guns that suggested an affinity and interest that surpassed "novice".    
+</i></p>
+
+<div class="image">
+<center><img src="{{ site.url }}/assets/img/shooting-brother.jpg" alt="brothers together" ></center>
+<div><center><font size=".5"><b>Image: Older picture of Paddock brothers.</b> </font></center></div>
+<br>
+</div>
+
+<p style="font-family:courier;"><i>
+<br><br>Statements from his live-in girlfriend were contradictory as well when compared to actions. Did anyone truly know Stephen Paddock? <br><br>
+"I knew Stephen Paddock as a kind, caring, quiet man," Marilou Danley said in a statement read by her attorney. "He never said anything to me or took any action that I was aware of that I understood in any way to be a warning that something horrible like this would happen.” 
+</i></p>
+
+<div class="image">
+<center><img src="{{ site.url }}/assets/img/marilou.jpg" alt="girlfriend" ></center>
+<div><center><font size=".marilou.jpg"><b>Image: Stephen Paddock's close female companion,Marilou Danley.</b> </font></center></div>
+<br>
 </div>
 </div>
-</div>
+### Invesigation Continues but Questions Remain
+<p style="font-family:courier;"><i>
 
+As the aftermath of the firestorm created by Stephen becomes clearer, we are still left with glaring questions regarding the motive.  Investigators made great headway answering tangible questions:
+<ul>
+<li>What type of guns did he use?</li>
+<li>Where and when did he buy the guns?</li>
+<li>How many bullets did he have?</li>
+<li>Where did he live?</li>
+<li>What was his temperament?</li>
+</ul>
+
+We also know the gruesome toll ten minutes of terror causes.  Nearly 60 dead and over 500 wounded.<br><br>  
+
+After a full day of leveraging LVMPD resources to a common goal, one question remained elusive.  <b>Why did he do it?</b><br><br>
+
+We may never know.</i></p>  
 <hr>
 <br><br>
-## Mission Accomplished: Use [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR) and GDELT
 
-That closes out our brief introduction to [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR) and our story. To summarize, we pulled a chronologically ordered list of URLs to news stories on the Marawi crisis.  After we pulled the data from GDELT, we used the geonames featureid and the CAMEO code to filter down to the relevant data; the filter got us from 200,000+ total GDELT reports to 206 reports dealing with Marawi and violence.  Of those 206 urls, 79 were unique and pointed to different news stories, ordered by time (**change the CAMEO code and feature id to explore issues in other parts of the world**).  To build the final timeline, you only needed to read the stories and write coherently.  I want to point out, the CAMEO system extacts a lot more information that is coded into GDELT. There are over 60 columns of data in GDELT, and each column provides unique value.  We only used four (4) columns in this post (Date Added, Event Root Code, Action Geo FeatureID and Source Url).     
+## Mission Accomplished: An Introduction to a Narrative Tutorial and `gdeltPyR`
 
+That concludes our narrative and tutorial.  To summarize, we used `gdeltPyR` to pull GDELT about a real life event and built a narrative using that data to show how the information picture evolved over time. Included in the coding section were trivial techniques you can use to filter your GDELT data down to the most relevant records.     
 
-In building [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR) (which I hope you will use or help me develop!), I focused on abstracting the details of the API calls away from the user. And, I added a little multiprocessing juice in there as well to make full use of all available cores! For those who run into feature ID problems, there's an easy way to build your own lookup table of feature ids.  Just pull a few days of GDELT data using [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR), isolate unique feature ids, and create a second column that holds the different names tied to the same feature id.  Pretty soon, you'll have the id and name for most cities, provinces/states, and countries.
+# The Data Science Detour: Quick Time Series Analysis
 
-Now, go forth and use [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR) or, learn more about [GDELT](http://www.gdeltproject.org/) in general. 
+Quickly, we will use time series analysis to plot volumetric change in our CAMEO code of interest.  A key step is normalizing the count of our codes of interest against all recorded GDELT events.  Therefore, as opposed to a raw count, we will see a measured percentage over time.  For example:
+*  1000 total GDELT events for one 15 minute interval
+*  100 total events in our CAMEO code of interest
+*  We would just divide CAMEO code count by Total GDELT count
 
-I need to give you a warning on data consumption; GDELT is MASSIVE.  I will eventually write a function in `gdeltPyR` to query GDELT data using Google BigQuery ([already wrote the prototype](https://github.com/linwoodc3/gdeltPyR/issues/24)), but I need to warn you of something first. If you do a query with [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR) covering a few weeks, you may run out of memory.  By default, [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR) stores the data in RAM (because [it's a `pandas` dataframe](https://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe)).  If one full day of reporting is nearly 500 MBs in size, you can see how memory becomes a real problem as you cover more time.  For memory constrained workflows, create a pipeline that reads the data in, writes to disc, and flushes RAM before going to the next day.  
-
-Now, the fun part for you.  We could have done MUCH MORE with this data.  Some ideas include:
-- Implement web scraping on each data source to extract the content; then compute element wise Levenshtein distance (LD) or semantic similarity; result - determine which documents have most original content
-- Extend analytic above by adding news provider and time component to find news providers who provide most original content faster
-- Do everything above, but try to use the resulting corpus for text summarization
-- New organizations could use this data to ensure they are adding original content when they publish!
-- Can you think of more?!?!? 
-
-### The Obigatory Graphic:  See the Time Series Potential of GDELT
-The Walkoff:  Every post needs a graphic.  Below, you'll see a simple time series graphic that charts the magnitude of our target CAMEO code and feature id (normalized by total hour count) through time. We see an obvious uptick in activity later in the day, led by a complete lack of activity. 0900 UTC is about 1700 PHT; we were getting automatic extractions within a few hours of an event happening in a remote village in the Phillipines! We don't cover it, but GDELT extactions assign responsibility to groups (**ABU SAYYAF** automatically extracted), organizations (**GOVERNMENT TROOPS AND POLICE** automatically extracted) and places (**HOSPITAL** automatically extracted in addition to city/state names).
-
-I welcome your thoughts/comments/corrections. My basicaly thought is, since we have a geoname entry for nearly every city on the planet, we can run this analytic ad finitum on each CAMEO code and each feature id; the only limitations are compute power and storage. Now, the graphic (using my Economist matplotlib style):
+Here is our code for the code and visualization.
 
 ```python
 import matplotlib.pyplot as plt
-import matplotlib as mpl
-
-# set style
-mpl.style.use('economist')
-
-# resample to hourly interval for all events and marawi events
-timeseries= pd.concat([marawi.resample('H')['sourceurl'].count(),muate2.resample('H')['sourceurl'].count()]
+timeseries = pd.concat([vegastimed.set_index(vegastimed.dates.astype('datetime64[ns]')).tz_localize('UTC').tz_convert('America/Los_Angeles').resample('15T')['sourceurl'].count(),vegastimedfil.set_index('zone').resample('15T')['sourceurl'].count()]
          ,axis=1)
 
 # file empty event counts with zero
 timeseries.fillna(0,inplace=True)
 
 # rename columns
-timeseries.columns = ['Total Events','Marawi Violent Events Only']
+timeseries.columns = ['Total Events','Las Vegas Events Only']
 
 # combine
-timeseries = timeseries.assign(Normalized=(timeseries['Marawi Violent Events Only']/timeseries['Total Events'])*100)
+timeseries = timeseries.assign(Normalized=(timeseries['Las Vegas Events Only']/timeseries['Total Events'])*100)
 
 # make the plot
 f,ax = plt.subplots(figsize=(13,7))
-ax = timeseries.Normalized.ewm(adjust=True,ignore_na=True,min_periods=5,span=12).mean().plot(color="#C10534",label='Exponentially Weighted Count')
-ax.set_title('Hourly Count of Violent Events in Marawi',fontsize=28)
+ax = timeseries.Normalized.ewm(adjust=True,ignore_na=True,min_periods=10,span=20).mean().plot(color="#C10534",label='Exponentially Weighted Count')
+ax.set_title('Hourly Count of Violent Events in Las Vegas',fontsize=28)
 for label in ax.get_xticklabels():
       label.set_fontsize(16)
 ax.set_xlabel('Hour of the Day', fontsize=20)
@@ -522,33 +563,140 @@ ax.set_ylabel('Percentage of Hourly Total',fontsize='15')
 ax.legend()
 plt.tight_layout()
 plt.show()
-
 ```
-
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/countGraphic.png" alt="Count" ></center>
-<div><center><font size=".5"><b>Image: Simple analytic of normalizing count of event type in geographic regioin</b> </font></center></div>
+<div><center><font size=".5"><b>Image: Normalized count of events in Las Vegas. Peak begins after 11pm PDT.</b> </font></center></div>
 <br>
 </div>
 
+# The Data Scientist Challenge
+
+This section provides a chance to flex your data science muscles on GDELT data.  We will answer a series of questions (with increasing complexity) and issue a challenge at the end.  For the challenges, feel free to pause and try your solution before continuing.  
+
+### Question 1: Who Produced the Most Articles About the Las Vegas Active Shooter Event? 
+
+With the analytic power of Python `pandas` and regex, we can identify the news source with the highest original production (unique urls).  As stated early on, one problem with GDELT is duplicates.  A parsed news article can have multiple entries that use the exact same url. Moreover, the urls are unique in that they point to specific articles.  However, we can use regex to strip the root URL from each record and then count occurrences.  We need to strip the unique news provider from the URL and not just use URLs themselves.  I wrote some regex to accomplish both. Again, we use chained operations to get our desired output in one line of code.
+
+```python
+import re
+import pandas as pd
+
+# regex to strip a url from a string; should work on any url (let me know if it doesn't)
+s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
 
 
-[^1]:  ["MAPPING THE FUTURE OF MANKIND USING HISTORICAL DATASETS"](http://dataconomy.com/2014/09/mapping-the-future-of-mankind-using-historical-datasets/)
 
-[^2]: [Global Database of Events, Language, and Tone (GDELT)](http://www.gdeltproject.org/)
-<hr>
-<br>
-# The Data Science Detour
+# apply regex to each url; strip provider; assign as new column
+vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
+      apply(lambda x: s.search(x).group() if s.search(x) else np.nan))\
+.groupby(['provider']).size().sort_values(ascending=False).reset_index()
+```
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>provider</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://www.reviewjournal.com</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://www.yahoo.com</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>http://www.express.co.uk</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>https://article.wn.com</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>https://www.usatoday.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>http://www.onenewspage.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>http://www.lmtonline.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>http://www.mirror.co.uk</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>http://www.msn.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>http://www.nbcmontana.com</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
 
-This section is for you.  Yes. You, the person still reading through the end to the code.  I have a challenge for you, if you are interested.
+It looks like `https://www.reviewjournal.com` is our top producer with `9` stories on the Las Vegas topic.
 
-First, let's cover some basic analysis of the data we already have.  Assume we want to answer this question:
+### Question 2: How many unique news providers did we have producing on the  the Las Vegas Active Shooter Event? 
+
+This question is easy to answer because of the work we did in the previous question.  We perform all the same functions, but now we add a function to count unique values in the `provider` column.
+
+
+
+Assume we want to answer this question:
 
 *  Which news source provided the most original content on this topic?
 
 
-It may seem simple but this can be tricky to deal with as you understand the strengths and weaknesses of [GDELT](http://www.gdeltproject.org/).  [GDELT](http://www.gdeltproject.org/), in my opinion, values sensitivity over specificity.  As a result, you will rarely miss an event but you will almost certainly deal with a good number of false positives.  In this specific case, URLS to news sources repeat in our down sampled data set.  Moreover, we need to strip the unique news provider from the URL and not just use URLs themselves.  I wrote some regex to accomplish both.
+As stated early on, one problem with GDELT is duplicates.  A parsed new article can have multiple entries that source the exact same url. Moreover, the urls are unique in that they point to specific articles.  However, we can use regex to strip the root URL from each record and then computeWe need to strip the unique news provider from the URL and not just use URLs themselves.  I wrote some regex to accomplish both.
 
+
+```
+import re
+
+### Who Produced the Most?
+
+With the analytic power of Python `pandas` and regex, we can identify the news source with the highest original production (unique urls).  Let's strip out the providers first:
+
+```python
+# regex to strip a url from a string; should work on any url (let me know if it doesn't)
+s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
+
+# use dataframe from earlier
+frame = maute2
+
+# remove duplicate urls; only keep unique urls
+frame = frame.drop_duplicates(['sourceurl'])
+
+# apply regex to each url; strip provider; assign as new column
+frame=frame.assign(provider=frame.sourceurl.\
+      apply(lambda x: s.search(x).group() if s.search(x) else np.nan))
+
+# group by provider and return a count
+groups = frame.groupby(['provider']).size().sort_values(ascending=False).reset_index()
+
+# print the results
+print(groups)
+```
 ```python
 ######################
 # Third party libraries
