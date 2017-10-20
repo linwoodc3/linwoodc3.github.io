@@ -660,7 +660,7 @@ It looks like `https://www.reviewjournal.com` is our top producer with `9` stori
 
 This question is easy to answer because of the work we did in the previous question.  We perform all the same functions, but now we add a function to count unique values in the `provider` column.
 
-
+# Everything below here is draft
 
 Assume we want to answer this question:
 
