@@ -527,7 +527,7 @@ We may never know.</i></p>
 
 ## Mission Accomplished: An Introduction to a Narrative Tutorial and `gdeltPyR`
 
-That concludes our narrative and tutorial.  To summarize, we used `gdeltPyR` to pull GDELT about a real life event and built a narrative using that data to show how the information picture evolved over time. Included in the coding section were trivial techniques you can use to filter your GDELT data down to the most relevant records.     
+Our narrative ended with a lot of unanswered questions, but luckily, the tutorial provided solid guidance on  how to pull data using `gdeltPyR`.  To summarize, we used `gdeltPyR` to pull GDELT about a real life event and built a narrative using that data to show how the information picture evolved over time. Included in the coding section were trivial techniques you can use to filter your GDELT data down to the most relevant records.     
 
 # The Data Science Detour: Quick Time Series Analysis
 
