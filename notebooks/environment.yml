@@ -14,3 +14,4 @@ dependencies:
     - pytz
     - tzwhere
     - gdelt
+    - readability-lxml
