@@ -38,7 +38,7 @@ The gunshots sounded like firecrackers at first.  People in the crowd didn't und
 For reasons that remain unknown,  <a href="https://en.wikipedia.org/wiki/Stephen_Paddock" target="_blank">Stephen Paddock, a 64-year old white male, </a>fired on a crowd of 22,000 for 10 minutes unhindered in 40- to 50-round bursts from his 32nd floor room of the <a href="https://en.wikipedia.org/wiki/Mandalay_Bay" target="_blank"> Mandalay Bay Hotel and Casino</a>. Paddock had at least 20 guns and hundreds of rounds of ammunition — some with scopes — in his hotel room, and busted out windows with a hammer-like object to create his sniper's perch roughly hundreds of yards from the <a href="https://en.wikipedia.org/wiki/Route_91_Harvest" target="_blank">Route 91 Harvest Festival of country music</a>. Analysis of the shooting video showed Paddock fired a staggering 280 rounds in one 31-second span.<br><br>
 
 <div class="image">
-<center><img src="{{ site.url }}/assets/img/runningcrowd.jpg" alt="Chaos in the crowd" ></center>
+<center><img src="{{ site.url }}/assets/img/runningcrowd.jpg" alt="Crowd runs while being shot at" ></center>
 <div><center><font size=".5"><b>Image: Chaos as shots rang out at the Route 91 Harvest Country Music Festival in Las Vegas. <br><i>Source: David Becker/Getty Images</i></b> </font></center></div>
 
 </div>
@@ -64,15 +64,25 @@ Police frantically tried to locate the shooter and determine whether the gunfire
 <hr>
         
 # Code/Tutorial Introduction
-Horrible flash-in-the-pan events, such as the Las Vegas active shooter crisis, happen infrequently in specific cities.  However, when looking at destabilizing events on a national or global scale, we learn that these types of events are a regular occurrence.  In the past, getting information on these events depended on the location of the event, your proximity to the event, and the likelihood of a news provider in your region (and language) covering the event. But the arrival of the information age has made it possible to learn about these events in real time regardless of location.  Services such as <a href="https://www.gdeltproject.org/" target="_blank"> Global Database of Events, Language, and Tone (GDELT)</a> track these events in remote locations across the globe.  **More importantly, everything you see in this tutorial can be done for foreign language new media; GDELT works with more than English language**.<br><br>  
+Horrible flash-in-the-pan events, such as the Las Vegas active shooter crisis, happen infrequently in specific cities.  However, when looking at destabilizing events on a national or global scale, we learn that these types of events are a regular occurrence.  In the past, getting information on these events depended on the location of the event, your proximity to the event, and the likelihood of a news provider in your region (and language) covering the event. But the arrival of the information age has made it possible to learn about these events in real time regardless of location.  Services such as <a href="https://www.gdeltproject.org/" target="_blank"> Global Database of Events, Language, and Tone (GDELT)</a> track these events in remote locations across the globe.<br><br>  
 
-This tutorial shows how the mining of auto-parsed news stories can keep you (or your client) informed of the evolving security situation in a place of interest. Included is a short introduction to a python client I built to access and wrangle parsed news stories using <a href ="http://www.gdeltproject.org/about.html" target="_blank">GDELT</a>. By the end of this tutorial, you will have the tools needed to build a timeline of events using Python and `gdeltPyR`. For others considering writing a tutorial, try the narrative format we will use for this post. Data scientists and data engineers need to be well versed in the art of writing and narratives provide great practice! You can <a href="https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/gdeltPyR%20Tutorial%20Notebook.ipynb" target="_blank">download the notebook for this tutorial here</a>.
+
+This tutorial shows how the mining of auto-parsed news stories can keep you (or your client) informed of the evolving security situation in a place of interest. Included is a short introduction to a python client I built to access and wrangle parsed news stories using <a href ="http://www.gdeltproject.org/about.html" target="_blank">GDELT</a>. By the end of this tutorial, you will have the tools needed to build a timeline of events using Python and `gdeltPyR`. **More importantly, these techniques will help you create narratives from news stories written in over 100 languages using GDELT's translated events table.** For others considering writing a tutorial, try the narrative format we will use for this post. Data scientists and data engineers need to be well-versed in the art of writing and narratives provide great practice! You can <a href="https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/gdeltPyR%20Tutorial%20Notebook.ipynb" target="_blank">download the notebook for this tutorial here</a>.
 
 ### Understanding the Narrative Tutorial Format
 
-This tutorial is split into sections. We switch from a **narrative story** section, told using the data returned from `gdeltPyR` and a **tutorial** section that gives instruction on how to use `gdeltPyR` and analyze the returned data.  I use a page splitter and different font to signal the switch between a narrative and coding section.
+This tutorial is split into sections. We switch from a **narrative story section**, told using the data returned from `gdeltPyR` and a **tutorial section** that gives instruction on how to use `gdeltPyR` and analyze the returned data.  I use a page splitter and different font to signal the switch between a narrative and coding section.
  
-Every fact or detail in the narrative came from news stories accessed via gdeltPyR. Using data wrangling and time series analysis techniques, we will order the stories chronologically to see how this active shooter event evolved in time. Moreover, we understand just how responsive the GDELT service is.  Nearly one hour after the first gunshots were fired, GDELT had automatically geolocated this event to Las Vegas and catalogued it as a crisis involving firearms. The first GDELT report came at 23:15 PDT (06:15 in UTC time).   News reports suggest the shooting started at 22:08 PDT (05:08 UTC)!  We can even use time series analysis to build an alert for a city and specific type of event using GDELT data.  But first, we need an introduction to GDELT.
+Every fact and image in the narrative came from news stories accessed via gdeltPyR. Using data wrangling and time series analysis techniques, we will order the stories chronologically to see how this active shooter event evolved in time. Moreover, we understand just how responsive the GDELT service is.  Nearly one hour after the first gunshots were fired, GDELT had automatically geolocated this event to Las Vegas and catalogued it as a crisis involving firearms. The first GDELT report came at 23:15 PDT (06:15 in UTC time).   News reports suggest the shooting started at 22:08 PDT (05:08 UTC)!  We can even use time series analysis to build an alert for a city and specific type of event using GDELT data.  
+
+It cannot go unnoticed that the example I present in this tutorial is trivial and simple.  GDELT offers more data sets and supports higher order analysis.  Data sets that are (or will be) availble via `gdeltPyR` include:
+*  **Coming Soon** GDELT <a href="https://blog.gdeltproject.org/gdelt-visual-knowledge-graph-vgkg-v1-0-available/" target="_blank">Visual Global Knowledge Graph (VGKG)</a> - Access millions of images tied to news stories; includes metadata tags and other fields for higher order analysis of images, topics, and global news media
+*  **Coming Soon** <a href="https://blog.gdeltproject.org/announcing-the-american-television-global-knowledge-graph-tv-gkg/" target="_blank">American Television Global Knowledge Graph (TV-GKG)</a> - programmatic access to metadata of parsed closed captioning covering more than 150 English language  American television stations in 20 markets, some dating as far back as June 2009.  Metadata and tags support higher order analysis
+* **Available** <a href="https://blog.gdeltproject.org/gdelt-global-knowledge-graph/" target="_blank">Global Knowledge Graph (GKG)</a> - parsed feed that links every person, organization, location, count, theme, news source, and event mentioned in news articles published worldwide into a single network 
+*  **Coming Soon** <a href="https://blog.gdeltproject.org/gdelt-geo-2-0-api-debuts/" target="_blank">GDELT GEO 2.0 API</a>- map the geography of keyword based worldwide news using a keyword filter; updates every 15 minutes.
+*  **Available** <a href="https://blog.gdeltproject.org/gdelt-2-0-our-global-world-in-realtime/" target="_blank">Event mentions</a> - table that records every mention of an event over time, along with the timestamp the article was published
+
+As you can see, GDELT is a powerful data set.  But, what exactly is GDELT? Let's run through an introduction.
  
 
 <br>
@@ -84,14 +94,14 @@ Every fact or detail in the narrative came from news stories accessed via gdeltP
 
 ### What is GDELT?
 
-GDELT is a service that monitors print, broadcast, and web news media in over 100 languages from nearly all countries in the world. Enabled by this constant stream of news data, GDELT can monitor breaking news events anywhere on the planet. Equipped with parsed news data, it is possible to identify news providers who have a history of generating original content earliest for breaking issues in certain parts of the world. Conversely, analysis of GDELT data can show which news providers specialize in redisseminating another provider’s content.  In this case, a provider would value pushing out more substantive news to wider audiences at the cost of speed. Finally, as we will demonstrate in this tutorial, GDELT can be used to build event timelines.<br><br>
+GDELT is a service that monitors print, broadcast, and web news media in over 100 languages from nearly all countries in the world. Enabled by this constant stream of news data, GDELT can monitor breaking news events anywhere on the planet. Data scientists and developers can use this data to identify news providers who have a history of generating original content earliest for breaking issues in certain parts of the world, showing you where to look for news when something is happening in your market. Conversely, analysis of GDELT data can show which news providers specialize in redisseminating another provider’s content.  In this case, a provider would value pushing out more substantive news to wider audiences at the cost of speed. Finally, as we will demonstrate in this tutorial, GDELT can be used to build event timelines.<br><br>
 
 ### GDELT’s Coding System: CAMEO Codes
 
 
-The CAMEO code is the center of GDELT data analysis. CAMEO, which stands for <a href="https://en.wikipedia.org/wiki/Conflict_and_Mediation_Event_Observations" target="_blank">Conflict and Mediation Event Observations</a>, is a coding framework used to support the study of political and violent events. After passing through a series of extractors and machine learning algorithms, each news story is assigned a CAMEO code, geoinferenced location, and a series of other metadata tags for analysis.  As its quite possible for a single news story to cover multiple topics (e.g. US President speech on multiple issues), it's possible for a single news story to have multiple CAMEO codes and GDELT entries. CAMEO codes, along with other parsed values in the GDELT record, can be used to filter and categorize news content. We can subsequently use this filtering pipeline to automatically monitor news at the city, state, or country level on multiple topics across the globe. The coding system is pretty extensive with codes for diplomatic, military, societal, criminal, and economic events or actors. For example, to track all news on mass killings in Kigali, Rwanda, we only need to filter on CAMEO code ‘202’ and the geonames feature identifier (feature ID) for Kigali, ‘-2181358’ .<br><br>
+The CAMEO code is the center of GDELT data analysis. CAMEO, which stands for <a href="https://en.wikipedia.org/wiki/Conflict_and_Mediation_Event_Observations" target="_blank">Conflict and Mediation Event Observations</a>, is a coding framework used to support the study of political and violent events. After passing through a series of extractors and machine learning algorithms, each news story is assigned a CAMEO code, geoinferenced location, and a series of other metadata tags for analysis.  As it's quite possible for a single news story to cover multiple topics (e.g. US President speech on multiple issues), it's possible for a single news story to have multiple CAMEO codes and GDELT entries. CAMEO codes, along with other parsed values in the GDELT record, can be used to filter and categorize news content. We can subsequently use this filtering pipeline to automatically monitor news at the city, state, or country level on multiple topics across the globe. The coding system is pretty extensive with codes for diplomatic, military, societal, criminal, and economic events or actors. For example, to track all news on mass killings in Kigali, Rwanda, we only need to filter on CAMEO code ‘202’ and the geonames feature identifier (feature ID) for Kigali, ‘-2181358’ .<br><br>
 
-For all of GDELT’s strengths, it would be intellectually dishonest for me to ignore the reported weaknesses. To see what others have identified as strengths and weaknesses, see M.D. Ward et al’s Comparing GDELT and ICEWS Event Data. One oft cited weakness is duplicates; we’ll introduce a quick fix to reduce duplicates when analyzing a specific CAMEO event code.<br><br>
+For all of GDELT’s strengths, it would be intellectually dishonest for me to ignore the reported weaknesses. To see what others have identified as strengths and weaknesses, see <a href="https://www.researchgate.net/publication/303211430_Comparing_GDELT_and_ICEWS_event_data" target="_blank">M.D. Ward et al’s Comparing GDELT and ICEWS Event Data</a>. One oft cited weakness is duplicates; we’ll introduce a quick fix to reduce duplicates when analyzing a specific CAMEO event code.<br><br>
 
 Now that we understand GDELT, let's jump back into the story.
 
@@ -101,7 +111,7 @@ Now that we understand GDELT, let's jump back into the story.
 
 <p style="font-family:courier;"><i>
 
-Las Vegas responders continued their search for the shooter as the terrifying sound of quick-succesion gunshots engulfed the festival grounds. At least six officers searched Mandalay Bay hotel floor by floor before they found Paddock's room within minutes of the shooting. Paddock, a 64-year old resident of a Mesquite, Nevada retirement community, had apparently rented a two-room suite in the hotel four days before the massacre. As police closed in on his position, Paddock shot and wounded a hotel security officer through the door before <a href="https://www.lvmpd.com/en-us/Pages/default.aspx" target="_blank">Las Vegas Metropolitan Police Department (LVMPD) SWAT</a> used explosives to breach room 32135. Inside, they found Paddock dead. He had killed himself. After 10 minutes of terror that seemed like an eternity, it was finally over.<br><br>
+Las Vegas responders continued their search for the shooter as the terrifying sound of quick-succesion gunshots engulfed the festival grounds. At least six officers searched Mandalay Bay hotel floor by floor before they found Paddock's room minutes after the shooting started. Paddock, a 64-year old resident of a Mesquite, Nevada retirement community, had apparently rented a two-room suite in the hotel four days before the massacre. As police closed in on his position, Paddock shot and wounded a hotel security officer through the door before <a href="https://www.lvmpd.com/en-us/Pages/default.aspx" target="_blank">Las Vegas Metropolitan Police Department (LVMPD) SWAT</a> used explosives to breach room 32135. Inside, they found Paddock dead. He had killed himself. After 10 minutes of terror that seemed like an eternity, it was finally over.<br><br>
 
 The barrage from the 32nd floor lasted several minutes but the damage was extensive.  Initially, the number of fatalities had climbed to 20. Two hours later, the number had pushed past 50, making it the deadliest active shooter event in recent history. At least two off-duty police officers were shot and killed. Two other police officers were injured, one of them critically. Over 500 people were wounded.</i></p>
 
@@ -129,11 +139,11 @@ With the shooter neutralized, responders tended to victims and the world searche
 <hr>
 
 ### Pythonic Access to Worldwide GeoReferenced News
-In the same way that officers relied on training and teamwork to locate the shooter, we need a reliable tool to access GDELT data.  That's where <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> comes in .  <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how new events spreads across the world in time and space. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. 
+In the same way that officers relied on training and teamwork to locate the shooter, we need a reliable tool to access GDELT data.  That's where <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> comes in .  <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how news events spread across the world. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. 
 
 ### Set up Environment for Code in Tutorial
 
-You can set up the environment to follow along with a simple line of code.  First, <a href="https://conda.io/docs/user-guide/install/index.html" target="_blank">make sure you have Anaconda installed</a>. Then, download my <a href="https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/environment.yml" target="_blank">environment.yml</a> file, start a terminal session from the directory where the file is downloaded, and type:
+You can set up the environment to follow this tutorial with a few lines of code.  First, <a href="https://conda.io/docs/user-guide/install/index.html" target="_blank">make sure you have Anaconda installed</a>. Then, download my <a href="https://github.com/linwoodc3/linwoodc3.github.io/blob/master/notebooks/environment.yml" target="_blank">environment.yml</a> file, start a terminal session from the directory where the file is downloaded, and type:
 ```bash
 conda env create; source activate gdeltblog
 
@@ -146,7 +156,7 @@ If you only want to install `gdeltPyR`, in a terminal session run:
 pip install gdelt
 ```
 
-Not all new events work well with <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> because GDELT is focused on news events that impact security and stability.  For examples of the types of events to test, visit the <a href="https://en.wikipedia.org/wiki/Portal:Current_events" target="_blank">Wikipedia Current Events page</a> and look at the `Armed conflicts and attacks` or `Politics and elections` entries.  Some examples I've tested include:
+Not all current events can be analyzed using <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> because GDELT is focused on news events that impact security and stability.  For examples of the types of events to test, visit the <a href="https://en.wikipedia.org/wiki/Portal:Current_events" target="_blank">Wikipedia Current Events page</a> and look at the `Armed conflicts and attacks` or `Politics and elections` entries.  Some examples I've tested include:
 
 * <a href="https://en.wikipedia.org/wiki/2017_Manchester_Arena_bombing" target="_blank">Manchester Arena bombing</a>
 * <a href="https://en.wikipedia.org/wiki/Proclamation_No._216" target="_blank">The Marawi crisis in the Philippines</a>
@@ -199,7 +209,7 @@ With our libraries set up, let's get back into the story.
 
 ### Who was Stephen Paddock?<br>
 <p style="font-family:courier;"><i>
-The search to understand Stephen Paddock started in the room where he died. Police recovered 23 guns (some with scopes) from his room where hotel workers, who were in and out of the room over several days, said they “saw nothing at all” hinting at the forthcoming rampage. At least two of the guns were modified with <a href="https://en.wikipedia.org/wiki/Bump_fire" target = "_blank">bump-stock devices</a> which can be attached to the stocks of semiautomatic guns to allow fully automatic gunfire. Investigators could tell from the arsenal, Paddock was intent on killing as many people as possible and the number of killed could have easily been higher if not for the quick response of the officers.  Despite the large discovery in the room, authorities still had little insight into "why" he did it. Paddock's death meant investigators would be on a scavenger hunt to discover a motive.
+The search to understand Stephen Paddock started in the room where he died. Police recovered 23 guns (some with scopes) from his room where hotel workers, who were in and out of the room over several days, said they “saw nothing at all” hinting at the forthcoming rampage. At least two of the guns were modified with <a href="https://en.wikipedia.org/wiki/Bump_fire" target = "_blank">bump-stock devices</a> which can be attached to the stocks of semiautomatic guns to allow fully automatic gunfire. Investigators could tell from the arsenal, Paddock was intent on killing as many people as possible and the number killed on Oct 1 could have been higher if not for the quick response of the officers.  Despite the large arsenal in the room, authorities still had little insight into "why" he did it. Paddock's death meant investigators would be on a scavenger hunt to discover a motive.
 </i></p>
 
 <div class="image">
@@ -223,11 +233,11 @@ In the midst of the hotel room search, officers executed a search warrant at Pad
 
 With the physical search ongoing, officers turned to Paddock's close relationships and life.  He had a live-in girlfriend, 62-year-old Marilou Danley, who was traveling in the Philippines when the massacre took place. Although Paddock used some of her identification to check into the hotel, investigators clarified that they believed she was not involved with the shooting. He married Peggy Okamoto in 1985 but the couple divorced in 1990, nearly three decades ago.   Peggy, now living in Los Angeles County, California, said she had no contact with him for years.<br><br>
 
-Financially, Paddock was a wealthy man.  He was worth more than $2 million, having made a good chunk of money from buying and selling real estate in several states, including California, Nevada, Florida and Texas. As a retiree, he had no children and plenty of money to play with. So he took up gambling.
+Financially, Paddock was a wealthy man.  He was worth more than $2 million, having made a good chunk of money from buying and selling real estate in several states, including California, Nevada, Florida and Texas. As a retiree, he had no children and plenty of money to play with. So, he took up gambling.
 Paddock told neighbors he was a professional gambler and a prospector, and liked to bet big, wagering tens of thousands of dollars in a sitting. 
 <br><br>
 
-Perhaps Paddock had a checkered past or multiple run-ins with police?  But, investigators quickly learned this was not the case.  A criminal check provided little insight into Paddock’s motive or temperament because he had no criminal record and was not believed to be connected to any militant group. “We have no idea what his belief system was,” Lombardo said. “I can’t get into the mind of a psychopath.”<br><br>
+Perhaps Paddock had a checkered past or multiple run-ins with police?  Investigators quickly learned this was not the case.  A criminal check provided little insight into Paddock’s motive or temperament because he had no criminal record and was not believed to be connected to any militant group. “We have no idea what his belief system was,” Lombardo said. “I can’t get into the mind of a psychopath.”<br><br>
 
 Next, officers looked into Paddock's arsenal.  The paper trail could possibly reveal something.  Initial research suggested Paddock had purchased  his firearms legally. A Mesquite store, Guns & Guitars, said it sold a gun to Paddock and that “he never gave any indication or reason to believe he was unstable or unfit at any time.” Additional research showed he had purchased multiple firearms in the past, with several of them purchased in California, according to law enforcement officials. Interestingly, those guns didn't appear to be among the 10 or more guns found in the Mandalay Bay hotel room.  Nothing materialized from the gun angle.<br><br>
 </i></p><br>
@@ -239,7 +249,7 @@ Next, officers looked into Paddock's arsenal.  The paper trail could possibly re
 </div>
 
 <p style="font-family:courier;"><i>
-Then, the search moved to Paddock's hobbies.  He had two planes and held a private pilot's license but had not updated the medical certification required to fly since 2008 or 2010. According to relatives,  liked country music and went to concerts like the Route 91 Harvest festival where he killed so many Sunday night.<br><br>
+Then, the search moved to Paddock's hobbies.  He had two planes and held a private pilot's license but had not updated the medical certification required to fly since 2008 or 2010. According to relatives,  Paddock liked country music and went to concerts like the Route 91 Harvest festival he attacked on Sunday night.<br><br>
 
 The look into Paddock's past was proving fruitless.  Nothing about Paddock, <a href="https://www.theguardian.com/us-news/2016/sep/20/gun-ownership-america-firearms-super-owners" target="_blank">including his ownership of over 40 guns</a>, seemed out of place or out of the ordinary. Officers decided to move to his family history next.  Perhaps his siblings or parents would provide clues.
 
@@ -251,20 +261,21 @@ The look into Paddock's past was proving fruitless.  Nothing about Paddock, <a h
 ## Using [`gdeltPyR`](https://github.com/linwoodc3/gdeltPyR)
 Unlike the difficulties investigators experienced in trying to find Paddock's motive, `gdeltPyR` is easy to understand and use. As stated earlier, we only need a date and information about the location to find the target data. After we filter the data to the relevant GDELT records, it’s just a “point, click, and read” job because the news stories will be categorized and organized by time.
 
-The code to pull data for October 1 through October 2:
+The code to pull data for October 1 through October 3:
 
 ```python
-# code to use gdeltPyR; pulling all of 1-2 Oct data (coverage = True) 
+# code to use gdeltPyR; pulling all of 1-3 Oct data (coverage = True) 
 # and normalizing column names to SQL friendly format (normcols=True)
 
 vegas = gd.Search(
-                  date=['2017 Oct 1','2017 Oct 2'],
+                  date=['2017 Oct 1','2017 Oct 3'],
                   coverage=True,
                   normcols=True
                   )
 ```
 
-Depending on your internet connection, this could take several to tens of seconds to download. My query took 29 seconds to return 263,707 a row by 62 column dataframe that is 569.5 MB. The time to download data will be drastically reduced <a href="https://github.com/linwoodc3/gdeltPyR/issues/24" target="_blank">when `gdeltPyR` includes a direct connection to Google BigQuery.</a>  GDELT also ships data out in 15 minute intervals; if you set the `coverage` parameter to `False`, it takes 1-2 seconds to return a 2000-3000 row by 62 column dataframe. 
+Depending on your internet connection, this could take several to tens of seconds to download. My query took 40 seconds to return 461,243 a row by 62 column dataframe that is 996.1 MB. The time to download data will be drastically reduced <a href="https://github.com/linwoodc3/gdeltPyR/issues/24" target="_blank">when `gdeltPyR` includes a direct connection to Google BigQuery.</a>  GDELT also ships data out in 15 minute intervals; if you set the `coverage` parameter to `False`, it takes 1-2 seconds to return a 2000-3000 row by 62 column dataframe. As GDELT is updated every 15 minutes, a near realtime feed would be easy to manage.
+
 As disscussed earlier, one article can have multiple entries with different CAMEO codes.  Our goal is to use the returned metadata to filter down to the relevant records.  To see the full details on the columns/metadata, see the <a href="https://github.com/linwoodc3/gdelt2HeaderRows/blob/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv" target="_blank">schema descriptions here.</a> The most relevant columns for this post are described in the table below:
 
 | Column Name  |  Description |
@@ -283,7 +294,7 @@ As disscussed earlier, one article can have multiple entries with different CAME
 
 Each record in the <a href="https://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe" target="_blank">dataframe</a> is a news report in time so we can treat this as a time series.  Moreover, GDELT returns data in equally spaced intervals of time which works well for <a href="https://en.wikipedia.org/wiki/Time_series" target="_blank">time series analysis</a>.<br><br>
 
-To condition our data for time series analysis, we will create and use custom functions to make time aware datetime columns that can be used to index our data (e.g. transform UTC to local Pacific Daylight Time using the lat/lon).  The code block that follows creates the function and applies it via <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.vectorize.html" target="_blank">numpy vectorization</a>.  We will also use a chained <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.assign.html" target="_blank">`pandas.DataFrame.assign` operation</a> to create our new columns.
+To condition our data for time series analysis, we will create and use custom functions to make time aware columns that can be used to index our data (e.g. transform UTC to local Pacific Daylight Time using the lat/lon).  The code block that follows creates the function and applies it via <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.vectorize.html" target="_blank">numpy vectorization</a>.  We will also use a chained <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.assign.html" target="_blank">`pandas.DataFrame.assign` operation</a> to create our new columns.
 
 ```python
 def striptimen(x):
@@ -355,12 +366,12 @@ vegastimed = (vegas.assign(
 ```
 
 
-The code above created two time-enabled columns; `dates` and `zone`. Both columns are `datetime64[ns]` data types, which means they can be used for <a href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html" target="_blank">time series functionality in pandas</a>. The `zone` column is a time zone aware data type (Los Angeles time), which adds the time zone offset to `UTC` time. The `dates` column is UTC time. <br><br>
+The code above created two time-enabled columns; `dates` and `zone`. Both columns are <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.datetime.html#datetimes-and-timedeltas" target="_blank">`datetime64[ns]` data types</a>, which means they can be used for <a href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html" target="_blank">time series functionality in pandas</a>. The `zone` column is a time zone aware data type (Los Angeles time), which adds the time zone offset to `UTC` time. The `dates` column is UTC time. <br><br>
 
-We can filter down to only those records relevant to the Las Vegas shooting using a combination of:
+We can filter out any records not related to the Las Vegas shooting using a combination of:
 *  <a href ="http://data.gdeltproject.org/documentation/CAMEO.Manual.1.1b3.pdf" target="_blank">CAMEO event root codes</a> of 18, 19, and 20 which stand for **assault**, **fight**, and **engage in unconventional mass violence** respectively.  See the <a href ="http://data.gdeltproject.org/documentation/CAMEO.Manual.1.1b3.pdf" target="_blank">CAMEO code reference for details on CAMEO event codes.</a>  For a higher level of aggregation, consider using the `QuadClass` field as a filter for the GDELT results. 
 *  Search for GNIS feature ID representing Las Vegas,**847388**, in the `actiongeofeatureid` field <br><br>
->**Note** To get more accurate results, use the <a href="https://geonames.usgs.gov/apex/f?p=138:1:0::NO:::" target="_blank">GNIS Feature ID</a> for your location filter as opposed to the string representing the location name because some news reports can spell place names differently. A trick to find the feature ID without searching the GeoNames website is to run a `gdeltPyR` query, find a relevant entry, copy the feature ID value, and filter the data using your new value.  The feature ID for Las Vegas is **847388**. When the `ActionGeo_Type` field is 3 or 4, understand the feature ID could also be specific and reference a landmark inside a city (stadium, park, building, etc.)
+>**Note** To get more accurate results, use the <a href="https://geonames.usgs.gov/apex/f?p=138:1:0::NO:::" target="_blank">GNIS Feature ID</a> for your location filter as opposed to the string representing the location name because some news reports can spell place names differently. A trick to find the feature ID without searching the <a href="https://geonames.usgs.gov/apex/f?p=138:1:0::NO:::" target="_blank">GeoNames website</a> is to run a `gdeltPyR` query, find a relevant entry, copy the feature ID value, and filter the data using your new value.  The feature ID for Las Vegas is **847388**. When the `ActionGeo_Type` field is 3 or 4, understand the feature ID could also be specific and reference a landmark inside a city (stadium, park, building, etc.)
 
 To get help on the fields, reference this <a href="https://github.com/linwoodc3/gdelt2HeaderRows/blob/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv" target="_blank">headers information file.</a> Finally, we use <a href="https://pandas.pydata.org/pandas-docs/stable/indexing.html" target="_blank">chained pandas indexing functionality</a> to filter our data in the code block below.
 
@@ -378,7 +389,7 @@ Out: (689, 64)
 
 ```
 
-This operation drastically reduced the size of our data set (from 200,000+ to ~700).  The next step is building the list of chronological news stories. For this post, I manually read stories to extract facts.  However, you could leverage <a href="https://en.wikipedia.org/wiki/Open_information_extraction" target="_blank">information extraction tools combined with entitiy extractors</a> to build a knowledge base for events of interest.  That would be a higher level of analysis and is outside the scope of this post.  To build the list of articles, see the code below.    
+This operation drastically reduced the size of our data set (from 400,000+ to ~1200).  The next step is building the list of chronological news stories. For this post, I manually read stories to extract facts.  However, you could leverage <a href="https://en.wikipedia.org/wiki/Open_information_extraction" target="_blank">information extraction tools combined with entity extractors</a> to build a knowledge base for events of interest.  That would be a higher level of analysis and is outside the scope of this post.  To build the list of articles, see the code below.    
 
 ```python
 # build the chronological news stories and show the first few rows
@@ -427,11 +438,11 @@ print(vegastimedfil.set_index('zone')[['dates','sourceurl']].head())
 </table>
 <br><br>
 
-Finally, to build a narrative, I simply read articles chronologically to see how the story unfolded in time. You can look at the url strings to skip irrelevant articles (first 6) or we could use time series analysis to identify a timeframe when the volume of news increases referencing our CAMEO code and location of interest. <br><br>
+Finally, to build a narrative, I read articles chronologically to see how the story unfolded in time. You can look at the url strings to skip irrelevant articles (first 6) or we could use time series analysis to identify a timeframe when the number of news articles with our CAMEO code and in our location of interest increases to an abnormal rate (higher than normal using a running average count).  <br><br>
 
-While reviewing the articles, stay alert.  News providers will update information but use the same url.  Therefore, some stories will have more information than they had when originally published. GDELT preserves the original time of the article but not the content; you should see clues in the text to let you know the article was updated.  Additonally, it's important to be aware of <a href="https://en.wikipedia.org/wiki/Participation_bias" target="_blank">participation or non-response bias</a>.  There may be a news provider who did not have its data processed by GDELT, leading to faulty conclusion that one particular news provider is faster than another.  As always, be wary of data limitations.<br><br>
+While reviewing the articles, stay alert.  News providers will update information but use the same url.  Therefore, some stories will have more information than they had when originally published. GDELT preserves the original time of the article but not the content; you should see clues in the text to let you know the article was updated.  Additonally, it's important to be aware of <a href="https://en.wikipedia.org/wiki/Participation_bias" target="_blank">participation or non-response bias</a>.  There may be a news provider who did not have its data processed by GDELT, leading to a faulty conclusion that one particular news provider is faster than another.  As always, be wary of data limitations.<br><br>
 
-If you wanted to time enable the entire 200,000+ row data set for time series analysis, it's relatively simple because `gdeltPyR` returns the data in a <a href="https://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe" target="_blank">pandas dataframe.</a>  First you would localize the entire dataset to UTC time and then convert it to any time zone offset using the <a href="http://pytz.sourceforge.net/" target="_blank">Python time zone string of your choice</a>. 
+If you wanted to index the entire data set for time series analysis, it's relatively simple because `gdeltPyR` returns the data in a <a href="https://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe" target="_blank">pandas dataframe.</a>  First you would localize the entire dataset to UTC time and then convert it to any time zone offset using the <a href="http://pytz.sourceforge.net/" target="_blank">Python time zone string of your choice</a>. 
 
 ```python
 # example of converting to Los Angeles time. 
@@ -446,15 +457,15 @@ vegastimed.set_index(
 # get time zone string using pytz 
 ```
 <br><br>
-Alternatively, you could use the <a href="https://gist.github.com/linwoodc3/5c915fb6d9097e7e27d5b0bc1f047ba2" target = "_blank">`tzwhere` library with latitude and longitude</a> to find the time zone string for each GDELT record and append the time zone this way.  Warning! It is computationally expensive to run this time zone analysis over the entire dataset.
+Alternatively, you could use the <a href="https://gist.github.com/linwoodc3/5c915fb6d9097e7e27d5b0bc1f047ba2" target = "_blank">`tzwhere` library with latitude and longitude</a> to find the time zone string for each GDELT record and normalize time this way.  Warning! It is computationally expensive to run this time zone analysis over the entire dataset.
 
-Our data is ready for time series analysis, but let's jump back into the story to learn what police learned about the suspect from family interviews.  
+Our data is ready for time series analysis, but first, let's jump back into the story to see what the police learned about the suspect from family and friends.  
 <hr>
 ### Still Seeking a Motive, Investigators Turn to Family and Friends
 <div><p style="font-family:courier;"><i>
 With little to show from all other leads, investigators hoped family members could provide some answers. At first glance, Stephen Paddock's parental history seemed to provide some clues.  <br><br>
 
-Decades before that fateful Sunday when Stephen perpetrated the worst active shooting event in US history, his father was on the FBI’s most-wanted list.  Benjamin Hoskins Paddock had been sentenced to 20 years in prison after being convicted of bank robbery and automobile theft.   In 1969 when Stephen was 15 years old, Benjamin escaped from prison in El Paso, Texas. He remained on the Most Wanted List from June 10, 1969 until May 5, 1977.  He was finally captured in 1978 while running a bingo parlor in Oregon. <br><br>
+Decades before that fateful Sunday when Stephen perpetrated the worst active shooting event in recent US history, his father was on the FBI’s most-wanted list.  Benjamin Hoskins Paddock had been sentenced to 20 years in prison after being convicted of bank robbery and automobile theft.   In 1969, when Stephen was 15 years old, Benjamin escaped from prison in El Paso, Texas. He remained on the Most Wanted List from June 10, 1969 until May 5, 1977.  He was finally captured in 1978 while running a bingo parlor in Oregon. <br><br>
 </i></p><br>
 
 <div class="image">
@@ -464,7 +475,7 @@ Decades before that fateful Sunday when Stephen perpetrated the worst active sho
 </div>
 
 <p style="font-family:courier;"><i>
-While the paternal history seemed promising, comments by Eric Paddock, Stephen Paddock's brother, suggested the father had little influence in his kid's upbringing. The answer was not encouraging. <br><br> 
+While the paternal history seemed promising, comments by Eric Paddock, Stephen Paddock's brother, suggested the father had little influence in his upbringing. <br><br> 
 
 “I didn’t know him. We didn’t know him,” Eric Paddock said of his paternal father, Benjamin Paddock. “He was never with my mom. I was born on the run and that’s the last time he was ever associated with by our family.”<br><br>
 
@@ -484,7 +495,7 @@ As the only family member speaking publicly, Eric answered questions on his brot
 
 "We have absolutely no idea whatsoever," Eric Paddock said to reporters gathered outside his home Monday morning. "We have no idea why he did this. And that's what you're going to find out. I can't imagine. When you guys found out why this happened, let us know. I have no idea whatsoever."<br><br>
 
-The response seemed totally out of touch with the man who killed over 50 and wounded over 500 innocent people.  Even more troubling, was the brother's comments on his brother's ownership of guns. He said Stephen was, “Not an avid gun guy at all...where the hell did he get automatic weapons? He has no military background."  But, as it turns out, Stephen had a lot of guns.  More importantly, he had modified guns that suggested an affinity and interest that surpassed a "casual" gun owner.    
+The response seemed totally out of touch with the man who used his modified rifles to kill 50 and wound over 500 innocent people.  Even more troubling, was the brother's comments on his brother's ownership of guns. He said Stephen was, “Not an avid gun guy at all...where the hell did he get automatic weapons? He has no military background."  But, as it turns out, Stephen had a lot of guns.  More importantly, he had guns that suggested an affinity and interest that surpassed those of a "casual" gun owner.    
 </i></p>
 
 <div class="image">
@@ -506,19 +517,19 @@ The response seemed totally out of touch with the man who killed over 50 and wou
 </div>
 </div>
 
-<p style="font-family:courier;"><i>It seemed that no one truly knew Stephen Paddock. Or perhaps the Paddock who fired the gun on thousands was the imposter; perhaps he snapped that day.  Either way, there was no conclusive evidence.
+<p style="font-family:courier;"><i>It seemed that no one truly knew Stephen Paddock. Or perhaps the Paddock who fired the gun on thousands of helpless people was the imposter; perhaps he snapped that day.  Either way, there was no conclusive evidence.
 </i></p>
 
-### Invesigation Continues but Questions Remain
+### Investigation Continues but Questions Remain
 
 <p style="font-family:courier;"><i>
-Family and friend interviews answered questions about Stephen Paddock as a person. But they did not answer questions about Paddock the gunman.  Overall, investigators did an admirable job piecing together the timeline of events and gathering background on the shooter.  They had information on the shooter's life, friends, financial situation, family history, and insight into where he purchased the guns. <br><br> 
+Family and friend interviews answered questions about Stephen Paddock the person. But they did not answer questions about Paddock the gunman.  Overall, investigators did an admirable job piecing together the timeline of events and gathering background on the shooter.  They had information on the shooter's life, friends, financial situation, family history, and insight into where he purchased the guns. <br><br> 
 
-As the aftermath of the Las Vegas event settles, the world struggles to come to terms with what happened.  Each person or group affected has something to cope with: families mourn those who perished,  the injured begin the healing process, people close to Stephen question if they ever really knew him, survivors confront the their escape from death or maiming, and everyone struggles to make sense of the whole ordeal.  The timeline of events is somewhat clear, but one glaring question remains.  <br><br> Why? <br><br>  Why did Stephen Paddock bring all those guns to his room?  Why did he snap that day? Why did he go on to commit the worst active shooter crisis in modern US history? <br><br> 
+As the aftermath of the Las Vegas event settles, the world struggles to come to terms with what happened.  Each person or group affected has something to cope with: families mourn those who perished,  the injured begin the healing process, people close to Stephen question if they ever really knew him, survivors confront the reality of their escape from death or maiming, and everyone struggles to make sense of the whole ordeal.  The timeline of events is somewhat clear, but one glaring question remains.  <br><br> Why? <br><br>  Why did Stephen Paddock bring all those guns to his room?  Why did he snap that day? Why did he go on to commit the worst active shooter crisis in modern US history? <br><br> 
 
 Only time will tell.<br><br> 
 
-Perhaps we will never know. 
+Or worse. Perhaps we will never know. 
 
 </i></p>
 
@@ -527,15 +538,15 @@ Perhaps we will never know.
 
 ## The Data Science Detour: Analyzing GDELT data
 
-Our narrative ended with a lot of unanswered questions about Paddock, but our code tutorial answered several questions regarding `gdeltPyR` and GDELT.  We learned GDELT is a service that monitors print, broadcast, and web news media all over the world in over 100 languages.  We also learned the `gdeltPyR` library provides a Pythonic pathway to query GDELT's parsed news data. Then, we used `gdeltPyR` to get a tidy, time-enabled data news data set about the Las Vegas event, which ultimately provided all the data to see how the event evolved.  
+Our narrative ended with a lot of unanswered questions about Paddock, but our code tutorial answered several questions regarding `gdeltPyR` and GDELT.  We learned GDELT is a service that monitors print, broadcast, and web news media all over the world in over 100 languages.  We also learned the `gdeltPyR` library provides a Pythonic pathway to query GDELT's parsed news data. Then, we used `gdeltPyR` to get a tidy, time-enabled data news data set about the Las Vegas event, which ultimately provided all the data to see how the event evolved. As stated, my example is trivial and focused on a U.S. problem; we could have easily picked a similar event in some remote part of the world and had similar results. 
 
-Up until now, our coding was utilitarian in nature.  We were focused on defining and downloading the GDELT data we wanted.  To cross into data science, we need to extract knowledge or insights from our GDELT data that could drive a decision.  The goal is to create a data product. Data products  derive their value from data and generate more data by influencing human behavior or by making inferences or predictions upon new data.  Therefore, we will use GDELT data to answer several questions where the answers can drive human or business decisions.  
+Up until now, our coding was utilitarian in nature;  it was focused on defining and downloading the GDELT data we wanted.  To cross into the realm of data science, we need to extract knowledge or insights from our GDELT data that could drive a decision.  In data science, the goal is to create a data product. Data products <a href="https://www.goodreads.com/author/quotes/8647128.Benjamin_Bengfort" target="_blank">derive their value from data and generate more data by influencing human behavior or by making inferences or predictions upon new data</a>.  In this section, we use GDELT data to answer questions where the answers could be used to drive human or business decisions.  
 
-For the questions, feel free to pause and try your solution before continuing.  
+While reading, feel free to pause and try your solution before continuing to my solution.  These are simple questions so give it a try.  
 
 ### Question 1: Who Produced the Most Articles About the Las Vegas Active Shooter Event? 
 
-With the analytic power of Python `pandas` and regex, we can identify the news source with the highest original production (unique urls).  As stated early on, one problem with GDELT is duplicates.  A parsed news article can have multiple entries that use the exact same url. Moreover, the urls are unique in that they point to specific articles.  However, we can use regex to strip the root URL from each record and then count occurrences.  We need to strip the unique news provider from the URL and not just use URLs themselves.  I wrote some regex to accomplish both. Again, we use chained operations to get our desired output in one line of code.
+With the analytic power of Python `pandas` and <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank">regex</a>, we can identify the news source with the highest original production (unique urls).  As stated early on, one problem with GDELT is duplicates.  A parsed news article can have multiple entries that use the exact same url. Moreover, the urls are unique in that they point to specific articles.  We can use regex to strip the root URL from each record and then count occurrences.  To find our providers, we need to strip the base URL and not just use article URLs for analysis.  I wrote some regex to accomplish both. Again, we use chained operations to get our desired output in one line of code.
 
 ```python
 import re
@@ -544,12 +555,10 @@ import pandas as pd
 # regex to strip a url from a string; should work on any url (let me know if it doesn't)
 s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
 
-
-
 # apply regex to each url; strip provider; assign as new column
-vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
+print(vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
       apply(lambda x: s.search(x).group() if s.search(x) else np.nan))\
-.groupby(['provider']).size().sort_values(ascending=False).reset_index()
+.groupby(['provider']).size().sort_values(ascending=False).reset_index().rename(columns={0:"count"}).head())
 ```
 <table border="1" class="dataframe">
   <thead>
@@ -562,71 +571,46 @@ vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
   <tbody>
     <tr>
       <th>0</th>
-      <td>https://www.reviewjournal.com</td>
-      <td>9</td>
+      <td>https://www.yahoo.com</td>
+      <td>25</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>https://www.yahoo.com</td>
-      <td>7</td>
+      <td>https://www.reviewjournal.com</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>http://www.express.co.uk</td>
-      <td>6</td>
+      <td>https://article.wn.com</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>https://article.wn.com</td>
-      <td>6</td>
+      <td>https://patch.com</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>https://www.usatoday.com</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>http://www.onenewspage.com</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>http://www.lmtonline.com</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>http://www.mirror.co.uk</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>8</th>
       <td>http://www.msn.com</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>http://www.nbcmontana.com</td>
-      <td>4</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>
 
-<br><br>It looks like <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is our top producer with `9` stories on the active shooter evebt.  Why is this site the top producer of a Las Vegas story?  A visit to the site and close look at the top left banner provides all the information we need.
+<br><br>After some research into the top URLs, you'll find <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is an interesting as top producer with `15` stories.  The other sites are world wide generic sites that likley have syndicated reporting. But <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is different.  A visit to the site and close look at the top left banner provides all the information we need.
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/reviewjournal.png" alt="Review Journal" ></center>
 <div><center><font size=".5"><b>Image: The Review Journal is a local paper in Las Vegas.</b> </font></center></div>
 <br>
 </div>
-After visiting the site, we see the name is the ***Las Vegas*** Review Journal, which explains a lot.  This is a local paper, so they would have more local reporters and a viewership/readership that was closely following the events.   
+After visiting the site, we see the name is the ***Las Vegas*** Review Journal, which explains a lot.  This is a local paper, meaning this provider is more likely to have reporters on the ground to keep its viewership/readership informed of breaking information.   
 <br>
-How can this information help drive decisions?  While anecdotal, we used analytics to identify a local news provider to keep track of major events in Vegas.  Out of all the news providers who wrote stories about our event, the Review Journal provided the most information.  That leads to our next question.   
+How can this information help drive decisions?  While anecdotal, we used analytics to identify a local news provider to keep track of major events in city.  This could be repeated for the same city to get a more statistically relevant conclusion. Moreover, this analytic could be repeated for other cities to find the local papers/providers for each city of interest.  With this information, it's possible to keep a tab on local events and how the local population perceives the events.  Finally, it's pretty interesting to find this Las Vegas paper in the midst of the generic producers.  But that leads to our next question; how many news providers did we have producing on this issue?     
 
 
 ### Question 2: How many unique news providers did we have producing on the  the Las Vegas Active Shooter Event? 
 
-This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  We will simply count up the unique values in that column.
+The purpose of answering this question is to see just how wide GDELT's coverage is; do they have a few sources publishing multiple stories or does GDELT have a lot of different providers publshing single stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
 
 ```python
 # chained operation to return shape
@@ -635,9 +619,12 @@ vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
       s.search(x) else np.nan))['provider']\
 .value_counts().shape
 ---------------------
-Out: (500,)
+Out: (797,)
 ```
-There were 500 news agencies writing about the active shooter in Las Vegas.  This provides some evidence of GDELT's wide reaching sources. Looking at the distribution plots below, we see that most news providers wrote 1 or 2 stories.  That puts the Las Vegas Review Journal in a category of its own by producing 9 stories in the first hours of the event.
+GDELT pulled from 797 news sources for this Las Vegas active shooter story alone; that's out of ~1200 stories. Imagine how many providers exist for the entire day?  <br><br>This provides some evidence of GDELT's wide reaching sources. Looking at the distribution plots below, we see that most news providers wrote less than 5 news stories, with most only producing between 1 and 2 stories.  If a news provider produced 4 articles, they were in the 95th percentile.  So, all producers above this number can be considered high producers, and with the Las Vegas Review being a local paper, that's pretty impressive to be in the top 5 with global producers like Yahoo, World News, Patch, and MSN. If we were advising our clients on which news sources to use for the security situation in Las Vegas, we have a data-based reason to recommend the Review Journal over other local providers.  Of course, additional tests would make the recommendation stronger.
+> These recommendations are based on GDELT processed news and not raw parsing of all news.  It's always good practice to caveat the limitations of the data and recommendations that come from your analysis of the data.
+
+Here is the distribution plot.
 
 ```python
 import matplotlib.pyplot as plt
@@ -664,10 +651,51 @@ plt.show()
 ```
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/cumPlot.png" alt="Review Journal" ></center>
-<div><center><font size=".5"><b>Image: Distribution plot show LV Review Journal is in category of its own.</b> </font></center></div>
+<div><center><font size=".5"><b>Graphic: Distribution plot show LV Review Journal is in category of its own.</b> </font></center></div>
 <br>
 </div>
 
+Lots of producers produced one or two stories; this could be for a number of reasons.  Those producers who don't have many viewers/readers in Vegas would only provide the information to inform.  Additionally, these providers could be waiting to get resources in place to produce more accurate stories.  The latter suggests we should expect to see a gradual rise in the number of published reports about the event as more reporters get in place.  That leads to our next question, which uses time series analysis concepts.
+
+### Question 3: What changes did we see in the volume of news reports about the Las Vegas active shooter event?
+
+Time series is where GDELT data shines.  GDELT processes data in equally spaced intervals (15 minutes), and we can use an exponentially weighted moving average to look at the volumetric change.  To improve the validity of the results, we will normalize the count of Las Vegas active shooter news tories in GDELT to the total count of news stories in GDELT for each 15 minute interval.  As a result, we will see our monitored value as a proporation as opposed to seeing a raw count.  For example:
+*  1000 total GDELT events for one 15 minute interval
+*  100 total events in our CAMEO code of interest for the same 15 minute interval
+*  We would just divide 100/1000 to get our normalized value for the 15 minute interval
+
+Our data is time indexed to Los Angeles time. Again, I'm using chained `pandas` operations to simply the code to fewer lines. Here is the code and plot.
+```python
+import matplotlib.pyplot as plt
+timeseries = pd.concat([vegastimed.set_index(vegastimed.dates.astype('datetime64[ns]')).tz_localize('UTC').tz_convert('America/Los_Angeles').resample('15T')['sourceurl'].count(),vegastimedfil.set_index('zone').resample('15T')['sourceurl'].count()]
+         ,axis=1)
+
+# file empty event counts with zero
+timeseries.fillna(0,inplace=True)
+
+# rename columns
+timeseries.columns = ['Total Events','Las Vegas Events Only']
+
+# combine
+timeseries = timeseries.assign(Normalized=(timeseries['Las Vegas Events Only']/timeseries['Total Events'])*100)
+
+# make the plot
+f,ax = plt.subplots(figsize=(13,7))
+ax = timeseries.Normalized.ewm(adjust=True,ignore_na=True,min_periods=10,span=20).mean().plot(color="#C10534",label='Exponentially Weighted Count')
+ax.set_title('Reports of Violent Events Per 15 Minutes in Vegas',fontsize=28)
+for label in ax.get_xticklabels():
+      label.set_fontsize(16)
+ax.set_xlabel('Hour of the Day', fontsize=20)
+ax.set_ylabel('Percentage of Hourly Total',fontsize='15')
+ax.legend()
+plt.tight_layout()
+plt.show()
+```
+<div class="image">
+<center><img src="{{ site.url }}/assets/img/countGraphic.png" alt="EWMA of Events" ></center>
+<div><center><font size=".5"><b>Graphic: Normalized count of events in Las Vegas. Peak begins after 11pm PDT..</b> </font></center></div>
+<br>
+</div>
 # Everything below here is draft
 
 
