@@ -106,7 +106,7 @@ For all of GDELT’s strengths, it would be intellectually dishonest for me to i
 Now that we understand GDELT, let's jump back into the story.
 
 <hr>
-### A Killer Neutralized... 
+## A Killer Neutralized... 
 
 
 <p style="font-family:courier;"><i>
@@ -610,7 +610,7 @@ How can this information help drive decisions?  While anecdotal, we used analyti
 
 ### Question 2: How many unique news providers did we have producing on the  the Las Vegas Active Shooter Event? 
 
-The purpose of answering this question is to see just how wide GDELT's coverage is; do they have a few sources publishing multiple stories or does GDELT have a lot of different providers publshing single stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
+The purpose of answering this question is to see just how wide GDELT's coverage is; does GDELT have a few sources publishing multiple stories or does are multiple sources publshing a few stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
 
 ```python
 # chained operation to return shape
@@ -655,7 +655,7 @@ plt.show()
 <br>
 </div>
 
-Lots of producers produced one or two stories; this could be for a number of reasons.  Those producers who don't have many viewers/readers in Vegas would only provide the information to inform.  Additionally, these providers could be waiting to get resources in place to produce more accurate stories.  The latter suggests we should expect to see a gradual rise in the number of published reports about the event as more reporters get in place.  That leads to our next question, which uses time series analysis concepts.
+A good number of new sources only published one or two stories; this could be for a number of reasons.  Those producers who don't have many viewers/readers in Vegas would may provide an initial report from a syndicated partner or a precursory update for a national/global audience.  In another scenario, national/global providers may wait to get resources on site to before starting a heavy reporting line on a remote topic.  The latter suggests we should expect to see a gradual rise in the number of published reports about the event as more reporters get in place. That leads to our next question, which uses time series analysis concepts.
 
 ### Question 3: What changes did we see in the volume of news reports about the Las Vegas active shooter event?
 
@@ -693,317 +693,164 @@ plt.show()
 ```
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/countGraphic.png" alt="EWMA of Events" ></center>
-<div><center><font size=".5"><b>Graphic: Normalized count of events in Las Vegas. Peak begins after 11pm PDT..</b> </font></center></div>
-<br>
-</div>
-# Everything below here is draft
-
-
-
-Up until now, 
-
-Quickly, we will use time series analysis to plot volumetric change in our CAMEO code of interest.  A key step is normalizing the count of our codes of interest against all recorded GDELT events.  Therefore, as opposed to a raw count, we will see a measured percentage over time.  For example:
-*  1000 total GDELT events for one 15 minute interval
-*  100 total events in our CAMEO code of interest
-*  We would just divide CAMEO code count by Total GDELT count
-
-Here is our code for the code and visualization.
-
-```python
-import matplotlib.pyplot as plt
-timeseries = pd.concat([vegastimed.set_index(vegastimed.dates.astype('datetime64[ns]')).tz_localize('UTC').tz_convert('America/Los_Angeles').resample('15T')['sourceurl'].count(),vegastimedfil.set_index('zone').resample('15T')['sourceurl'].count()]
-         ,axis=1)
-
-# file empty event counts with zero
-timeseries.fillna(0,inplace=True)
-
-# rename columns
-timeseries.columns = ['Total Events','Las Vegas Events Only']
-
-# combine
-timeseries = timeseries.assign(Normalized=(timeseries['Las Vegas Events Only']/timeseries['Total Events'])*100)
-
-# make the plot
-f,ax = plt.subplots(figsize=(13,7))
-ax = timeseries.Normalized.ewm(adjust=True,ignore_na=True,min_periods=10,span=20).mean().plot(color="#C10534",label='Exponentially Weighted Count')
-ax.set_title('Hourly Count of Violent Events in Las Vegas',fontsize=28)
-for label in ax.get_xticklabels():
-      label.set_fontsize(16)
-ax.set_xlabel('Hour of the Day', fontsize=20)
-ax.set_ylabel('Percentage of Hourly Total',fontsize='15')
-ax.legend()
-plt.tight_layout()
-plt.show()
-```
-<div class="image">
-<center><img src="{{ site.url }}/assets/img/countGraphic.png" alt="Count" ></center>
-<div><center><font size=".5"><b>Image: Normalized count of events in Las Vegas. Peak begins after 11pm PDT.</b> </font></center></div>
+<div><center><font size=".5"><b>Graphic: Normalized count of events in Las Vegas. Peak begins after 11pm PDT.</b> </font></center></div>
 <br>
 </div>
 
-# The Data Scientist Challenge
+As we noted early on in this post, GDELT automatically geolocated this news event to Las Vegas within 1 hour of the gunshots being fired.  While it's true that breaking news and television stations were reporting the story within minutes, it's important to note that GDELT **automatically inferred the location, CAMEO code, and actors**.  If a system is looking at multiple cities across the globe for specific events, `gdeltPyR` and GDELT can be a force multiplier when human capital and time are constraining factors. If we w 
 
-This section provides a chance to flex your data science muscles on GDELT data.  We will answer a series of questions (with increasing complexity) and issue a challenge at the end.  
+Speaking of time, we can explore one more time aspect of this data.
 
-Assume we want to answer this question:
+### Question 4: Using the GDELT processed news providers as the population, which provider produced the fastest overall?
 
-*  Which news source provided the most original content on this topic?
+This question can be tricky, but we have all the data needed to answer the question.  We want to calculate, on average, which news provider gets stories out faster.  In a business case, the answer to this question would support the recommendations we made earlier, giving our client an added dimension to not just track the news provider who produces the most, but also the provider who is fastest on the scene when a breaking event happens.  
 
-
-As stated early on, one problem with GDELT is duplicates.  A parsed new article can have multiple entries that source the exact same url. Moreover, the urls are unique in that they point to specific articles.  However, we can use regex to strip the root URL from each record and then computeWe need to strip the unique news provider from the URL and not just use URLs themselves.  I wrote some regex to accomplish both.
-
-
-```
-import re
-
-### Who Produced the Most?
-
-With the analytic power of Python `pandas` and regex, we can identify the news source with the highest original production (unique urls).  Let's strip out the providers first:
-
-```python
-# regex to strip a url from a string; should work on any url (let me know if it doesn't)
-s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
-
-# use dataframe from earlier
-frame = maute2
-
-# remove duplicate urls; only keep unique urls
-frame = frame.drop_duplicates(['sourceurl'])
-
-# apply regex to each url; strip provider; assign as new column
-frame=frame.assign(provider=frame.sourceurl.\
-      apply(lambda x: s.search(x).group() if s.search(x) else np.nan))
-
-# group by provider and return a count
-groups = frame.groupby(['provider']).size().sort_values(ascending=False).reset_index()
-
-# print the results
-print(groups)
-```
-```python
-######################
-# Third party libraries
-######################
-
-from bs4 import BeautifulSoup
-```
-
-### Who Produced the Most?
-
-With the analytic power of Python `pandas` and regex, we can identify the news source with the highest original production (unique urls).  Let's strip out the providers first:
-
-```python
-# regex to strip a url from a string; should work on any url (let me know if it doesn't)
-s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
-
-# use dataframe from earlier
-frame = maute2
-
-# remove duplicate urls; only keep unique urls
-frame = frame.drop_duplicates(['sourceurl'])
-
-# apply regex to each url; strip provider; assign as new column
-frame=frame.assign(provider=frame.sourceurl.\
-      apply(lambda x: s.search(x).group() if s.search(x) else np.nan))
-
-# group by provider and return a count
-groups = frame.groupby(['provider']).size().sort_values(ascending=False).reset_index()
-
-# print the results
-print(groups)
-```
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>provider</th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>http://www.philstar.com</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>http://news.abs-cbn.com</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>http://cnnphilippines.com</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>http://www.interaksyon.com</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>http://www.gmanetwork.com</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-
-Easy.  We know `http://www.philstar.com` and `http://news.abs-cbn.com` produced the most stories on the topic in the first few hours. To see how many unique websites wrote news stories on the Marawi crisis, according to [GDELT](http://www.gdeltproject.org/), just run `groups['provider'].unique().shape`; the answer is `55`.  
-
-### Who Produced the Fastest?
-
-What if we wanted to answer, **"Which website produced news stories "faster" on average?"** The first task is transforming our time into something that can be averaged.  If you're thinking [`epoch` time](https://en.wikipedia.org/wiki/Unix_time), that's where I decided to go as well. After the conversion, Python `pandas` functionality gets us to the result we need.
-
-We copy our data again and convert each date to an epoch timestamp.
-
-```python
-# subset the data again to include only unique urls
-frame2 = frame.copy()[frame.provider.notnull()==True]\
-.drop_duplicates('sourceurl')[['provider','sourceurl','dates']]
-
-# convert each date to epoch timestamp
-frame2 = frame2.assign(dates=frame2['dates']\
-.apply(lambda x: (x.to_pydatetime().timestamp())))
-
-```
-
-
-Awesome!  Next up, we're going to [use `pandas` to perform some advanced transformations on our data](https://pandas.pydata.org/pandas-docs/stable/groupby.html).  To `pandas` users, this is routine  work but if you are new this library, it can seem like a foreign language.  But, I advise you to learn `pandas`. What other library has this type of functionality?  To ground your understanding for this next block of code, keep `SQL` logic and syntax in mind. We will implement the following logic:
-
+To get an average time, we need time as an integer (<a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">epoch</a>).  The bulk of this computation will focus on converting to epoch. We are getting slightly more advanced in our wrangling/computation.  The steps we will follow are:
 *  Group data by news source
 *  Filter data and only keep sources that provided 3 or more original news stories
 *  Compute summary statistics (mean, max, min) over our epoch timestamps for each provider
-*  Convert epoch time to human readable datetime
+*  Convert <a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">epoch time</a> to human readable datetime
 *  Sort the final results; provider with earliest average listed first
 *  Localize the time to UTC
 *  Convert the time from UTC to Philippines time
 *  Rename columns
 *  Rename index
 
-The end result is, we should see which news source, on average, produced faster on this topic. `pandas` compacts all this logic into a few lines of code:
+Here is the code:
 
 ```python
-# group data by news source and keep sources with 3 or more stories
-grp = frame2.groupby('provider')\
-.filter(lambda x: len(x)>=3).groupby('provider')
 
-# compute summary stats on epoch timestamp; sort by mean
-final = grp.agg([np.mean,np.max,np.min]).sortlevel('mean',ascending=False)
+# complex, chained operations to perform all steps listed above
 
-# convert epoch to datetime in multiindex dataframe; set index to UTC
-newfinal = pd.DataFrame(final['dates']['mean']\
-.apply(lambda x:datetime.datetime.fromtimestamp(int(x)))\
-.sort_values(ascending=True)).reset_index().set_index('mean',drop=False)
-
-# make datetime time zone aware
-newfinal = newfinal.tz_localize('UTC')
-
-# convert time zone to Philippines
-newfinal = newfinal.tz_convert('Asia/Manila')
-
-# Rename columns
-newfinal.columns = ['provider','UTC Time']
-
-# rename index
-newfinal.index.name='Philippines Time'
-
-# print results
-print(newfinal)
+print((((vegastimedfil.reset_index().assign(provider=vegastimedfil.reset_index().sourceurl.\
+      apply(lambda x: s.search(x).group() if s.search(x) else np.nan),\
+                                      epochzone=vegastimedfil.set_index('dates')\
+                                      .reset_index()['dates']\
+.apply(lambda x: (x.to_pydatetime().timestamp()))).groupby('provider')\
+.filter(lambda x: len(x)>=10).groupby('provider').agg([np.mean,np.max,np.min,np.median])\
+.sort_index(level='median',ascending=False)['epochzone']['median'])\
+  .apply(lambda x:datetime.datetime.fromtimestamp(int(x)))\
+.sort_values(ascending=True)).reset_index()\
+ .set_index('median',drop=False)).tz_localize('UTC')\
+.tz_convert('America/Los_Angeles'))
 ```
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>provider</th>
-      <th>UTC Time</th>
+      <th>median</th>
     </tr>
     <tr>
-      <th>Philippines Time</th>
+      <th>median</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2017-05-23 22:45:00+08:00</th>
-      <td>http://www.philstar.com</td>
-      <td>2017-05-23 14:45:00</td>
+      <th>2017-10-02 15:45:00-07:00</th>
+      <td>https://www.reviewjournal.com</td>
+      <td>2017-10-02 22:45:00</td>
     </tr>
     <tr>
-      <th>2017-05-23 23:45:00+08:00</th>
-      <td>http://cnnphilippines.com</td>
-      <td>2017-05-23 15:45:00</td>
+      <th>2017-10-02 18:15:00-07:00</th>
+      <td>https://www.yahoo.com</td>
+      <td>2017-10-03 01:15:00</td>
     </tr>
     <tr>
-      <th>2017-05-24 01:10:00+08:00</th>
-      <td>http://www.gmanetwork.com</td>
-      <td>2017-05-23 17:10:00</td>
+      <th>2017-10-02 19:45:00-07:00</th>
+      <td>https://article.wn.com</td>
+      <td>2017-10-03 02:45:00</td>
     </tr>
     <tr>
-      <th>2017-05-24 01:39:00+08:00</th>
-      <td>http://news.abs-cbn.com</td>
-      <td>2017-05-23 17:39:00</td>
-    </tr>
-    <tr>
-      <th>2017-05-24 03:20:00+08:00</th>
-      <td>http://www.interaksyon.com</td>
-      <td>2017-05-23 19:20:00</td>
+      <th>2017-10-03 08:00:00-07:00</th>
+      <td>https://patch.com</td>
+      <td>2017-10-03 15:00:00</td>
     </tr>
   </tbody>
 </table>
-<br>It looks like `http://www.philstar.com` produced the "fastest" overall!
 
-# The Challenge
-### Who Produces the Most Semantically Dissimilar Content?
+It comes as no surprise that the local paper, the <a href="https://www.reviewjournal.com" target="_blank">Las Vegas Review Journal</a>, is the fastest overall producer on this topic when we consider new producers who produced a minimum of 10 articles. Returning to our ficticious business customer, we have more ammunition for our data-based recommendation to follow the Las Vegas Review Journal for violent event coverage in Las Vegas.  We would of course need to test this scenario on other high profile events, but we have some preliminary information to have discussions with our customer.  
 
-Now here is the challenge.  Don't worry; I will provide a little help to get you started (or maybe you don't need it). This question is a little difficult:
-* Which provider produces more semantically dissimilar content? 
+We will close this post with a challenge to answer the most difficult question. 
 
-In other words, who avoids repeating the same information in different articles (with unique URLs)? Consider calculating a measure for each provider and a measure across the different providers.  We expect to see SOME similarity because the news stories are talking about the same event. While reading these articles, I saw a lot of flat out "copies" or redisseminated news (this is legal, and was often an Associated Press article). With that said, we can use this *dissimilar* calculation to find out which providers are "copiers" and which providers do more "original" reporting.  You could also add a time component into this. **If you don't need any help, stop reading here and try your solution.**
+# The Data Scientist Challenge
+### Question 5: Who produces the most semantically dissimilar content?  
 
->  **Pity Party Pitstop:** One complaint I've seen about [GDELT](http://www.gdeltproject.org/) is, "Kalev H. Leetaru ([GDELT](http://www.gdeltproject.org/)'s creator) doesn't provide the content!"  To those folks, I say, **"Get it yourself; it's not that hard.**  I wrote this code below in 20 minutes and tested on [GDELT](http://www.gdeltproject.org/) urls.  Some content comes back; some doesn't. And another complaint involves duplicates.  Well, in this post, I gave you code to remove duplicates and isolate unique data providers and unique URLs.  If you know how to work with data, GDELT is a valuable tool.  If you are looking for the perfect data stream with zero interaction required on your part, I'll just say, "Me too!"  
+By answering this question, and combining with all the answers from above, we could more confidently recommend a local new source to our client because we identified:
 
-The code below works surprisingly well to pull content from A LOT of news websites.  It will work on news provider websites outside our Maute dataset, so feel free to reuse for other experiments. **Warning**.  Some websites have removed the content so you'll return an empty string.  Other websites may be blocked (every country's internet doesn't play well with others).  And, some websites use different tags for their HTML ([help me add try/except clauses using this Github Gist; let's work together!](https://gist.github.com/linwoodc3/e12a7fbebfa755e897697165875f8fdb)).  I did my best to return a message with a hint on why a URL doesn't return content. Here is the code: 
+* who produces the most
+* who produces the fastest
+* who produces the most unique content
 
+> **Note** Every recommendation/classification above is caveated with "according to GDELT parsed news feeds".  And, we would need more examples to increase the relevance of the recommendation
+
+In totality, these answers identify the producer who is always getting the scoop on a story using a repeatable data-driven approach.  While this challenge posits the most difficult question, the tools/libraries that you can use are well known. Consider using <a href="http://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html" target="_blank">scikit-learn</a>, <a href="https://radimrehurek.com/gensim/tut1.html" target="_blank">gensim (semantic similarity)</a>, and <a href="http://www.nltk.org/howto/metrics.html" target="_blank">nltk (Levenshtein edit distance)</a>, etc. 
+
+The first step to answer **Question 5** is getting the content, and I'll provide the code for you.
+
+The function to scrape content works surprisingly on from *MOST* news websites. For those websites where it doesn't work (blocked, IP issues, etc.), I added exceptions and warnings to give as much information as possible.  Here is the code from my GitHub gist: 
 
 {% gist linwoodc3/e12a7fbebfa755e897697165875f8fdb %} 
 
-Just to be sure, I'll also provide an example on how to run the function. [I (and people smarter than me) advise moving outside of the dataframe and parallelizing this function call](https://tomaugspurger.github.io/modern-4-performance.html).  I use [`concurrent futures` for this task in favor of the library's simplicity](https://github.com/pydata/parallel-tutorial/blob/master/notebooks/01-map.ipynb).
+I will provide an example of using the code. When building text corpora in Python, remember to `yield` instead of `return` in your function.  `yield` leads to a lazy (on demand) generation of values, which translates to lower memory usage. This code stores the returned data in memory but could easily be modified to write to disk.
 
 ```python
-from concurrent.futures import ProcessPoolExecutor
+# create vectorized function
+vect = np.vectorize(textgetter)
 
-# set up the multiprocessing mapper
-e = ProcessPoolExecutor()
+#vectorize the operation
+cc = vect(vegastimedfil['sourceurl'].values[10:25])
 
-# get unique urls
-urls = frame2['sourceurl'].unique()
+#Vectorized opp
+dd = list(next(l) for  l in cc)
 
-# run the parallel job; 
-#  takes 26 seconds on my 4 core machine; 78 news articles; 
-# more cores and better network speed this up
-done={}
-results = np.array(list(e.map(textgetter,urls)))
+# the output
+pd.DataFrame(dd).head(5)
 ```
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>base</th>
+      <th>text</th>
+      <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>http://www.goldcoastbulletin.com.au</td>
+      <td>Automatic gunfire at the Mandalay Bay Resort i...</td>
+      <td>Las Vegas shooter: Mandalay Bay casino gunman ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>http://www.sanluisobispo.com</td>
+      <td>Unable to reach website.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>http://www.nydailynews.com</td>
+      <td>\r\n\tA lone shooter rained death along the La...</td>
+      <td>Mass shooting at Mandalay Bay concert in Las V...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>http://www.hindustantimes.com</td>
+      <td>A gunman opened fire at a country music festiv...</td>
+      <td>Las Vegas shooting: Over 20 dead, 100 injured;...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>https://www.themorningbulletin.com.au</td>
+      <td>\n\tLAS Vegas shooter Stephen Paddock had a st...</td>
+      <td>Las Vegas shooting: Gunman Stephen Paddock had...</td>
+    </tr>
+  </tbody>
+</table>
 
-The next step is merging the content back into our `maute2` dataframe.  Then, we will have all the [GDELT](http://www.gdeltproject.org/) data needed for the challenge.  For those folks who want to perform `third-party` verification of [GDELT](http://www.gdeltproject.org/) modeling, this code gets everything you need to perform it (run this on an entire day; but you ip will probably get blocked by news providers).  You can apply different named entity extractor, sentiment, geo-inferencing,open information, and/or knowledge base models to the content.  Then, compare your results to the output of [GDELT](http://www.gdeltproject.org/).  Here is the code to merge data:
-
-```python
-# just a holder
-sers = []
-
-# loop over results and build row for each record
-for l in results:
-    ul = list(l.keys())[0]
-    content = l[ul]
-    sers.append(pd.Series({'url':ul,'content':content}))
-# create new dataframe with url and content
-connie = pd.concat(sers,axis=1).T
-
-
-# merge all data back together
-maute2.merge(connie,left_on='sourceurl',right_on='url')
-```
 
 You have all the data to complete the challenge! Thanks for reading! I'm curious to see how you tackle this problem.  Please share!
