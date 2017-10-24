@@ -17,7 +17,7 @@ author:
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: u/0/+LinwoodCreekmore 
 summary: This post uses news metadata from GDELT to create a substantive event timeline of the recent crisis in Marawi.  I also introduce my Python client to access and process GDELT data in the Python ecosystem.  This is especially useful if you have business interests in areas with stability issues. If you like time series analysis (you'll see potential), geospatial analysis, data analytics, and data engineering, you will enjoy this post! 
-excerpt: <br><br> <br><br>It all started a few minutes after 10 pm on October 1st.<br><br> The gunshots sounded like firecrackers at first.  People in the crowd didn't understand what was happening when the band stopped playing and Jason Aldean hustled off stage.<br><br>"That's gunshots," a man said on a cellphone video in the nearly half-minute of silence and confusion that followed. Then the pop-pop-pop noise resumed. And pure terror set in.
+excerpt: It all started a few minutes after 10 pm on October 1st.<br><br> The gunshots sounded like firecrackers at first.  People in the crowd didn't understand what was happening when the band stopped playing and Jason Aldean hustled off stage.<br><br>"That's gunshots," a man said on a cellphone video in the nearly half-minute of silence and confusion that followed. Then the pop-pop-pop noise resumed. And pure terror set in.
 
 ---
 
