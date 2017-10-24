@@ -17,7 +17,7 @@ author:
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: u/0/+LinwoodCreekmore 
 summary: This post uses news metadata from GDELT to create a substantive event timeline of the recent crisis in Marawi.  I also introduce my Python client to access and process GDELT data in the Python ecosystem.  This is especially useful if you have business interests in areas with stability issues. If you like time series analysis (you'll see potential), geospatial analysis, data analytics, and data engineering, you will enjoy this post! 
-excerpt: It all started a few minutes after 10 pm on October 1st.<br><br> The gunshots sounded like firecrackers at first.  People in the crowd didn't understand what was happening when the band stopped playing and Jason Aldean hustled off stage.<br><br>"That's gunshots," a man said on a cellphone video in the nearly half-minute of silence and confusion that followed. Then the pop-pop-pop noise resumed. And pure terror set in.
+excerpt: It all started a few minutes after 10 pm on October 1st. The gunshots sounded like firecrackers at first.  People in the crowd didn't understand what was happening when the band stopped playing and Jason Aldean hustled off stage. "That's gunshots," a man said on a cellphone video in the nearly half-minute of silence and confusion that followed. Then the pop-pop-pop noise resumed. And pure terror set in.<br><br>
 
 ---
 
@@ -75,12 +75,13 @@ This tutorial is split into sections. We switch from a **narrative story section
  
 Every fact and image in the narrative came from news stories accessed via gdeltPyR. Using data wrangling and time series analysis techniques, we will order the stories chronologically to see how this active shooter event evolved in time. Moreover, we understand just how responsive the GDELT service is.  Nearly one hour after the first gunshots were fired, GDELT had automatically geolocated this event to Las Vegas and catalogued it as a crisis involving firearms. The first GDELT report came at 23:15 PDT (06:15 in UTC time).   News reports suggest the shooting started at 22:08 PDT (05:08 UTC)!  We can even use time series analysis to build an alert for a city and specific type of event using GDELT data.  
 
-It cannot go unnoticed that the example I present in this tutorial is trivial and simple.  GDELT offers more data sets and supports higher order analysis.  Data sets that are (or will be) availble via `gdeltPyR` include:
+It cannot go unnoticed that the example I present in this tutorial is very simple.  However, <a href="https://www.gdeltproject.org/data.html" target="_blank">GDELT offers more data sets</a> that support higher orders of analysis.  Data sets that are (or will be) available via `gdeltPyR` include:
 *  **Coming Soon** GDELT <a href="https://blog.gdeltproject.org/gdelt-visual-knowledge-graph-vgkg-v1-0-available/" target="_blank">Visual Global Knowledge Graph (VGKG)</a> - Access millions of images tied to news stories; includes metadata tags and other fields for higher order analysis of images, topics, and global news media
 *  **Coming Soon** <a href="https://blog.gdeltproject.org/announcing-the-american-television-global-knowledge-graph-tv-gkg/" target="_blank">American Television Global Knowledge Graph (TV-GKG)</a> - programmatic access to metadata of parsed closed captioning covering more than 150 English language  American television stations in 20 markets, some dating as far back as June 2009.  Metadata and tags support higher order analysis
 * **Available** <a href="https://blog.gdeltproject.org/gdelt-global-knowledge-graph/" target="_blank">Global Knowledge Graph (GKG)</a> - parsed feed that links every person, organization, location, count, theme, news source, and event mentioned in news articles published worldwide into a single network 
 *  **Coming Soon** <a href="https://blog.gdeltproject.org/gdelt-geo-2-0-api-debuts/" target="_blank">GDELT GEO 2.0 API</a>- map the geography of keyword based worldwide news using a keyword filter; updates every 15 minutes.
 *  **Available** <a href="https://blog.gdeltproject.org/gdelt-2-0-our-global-world-in-realtime/" target="_blank">Event mentions</a> - table that records every mention of an event over time, along with the timestamp the article was published
+*  **Available** <a href="https://blog.gdeltproject.org/gdelt-2-0-our-global-world-in-realtime/" target="_blank">Events Database</a> - catalog of worldwide activities (“events”) in over 300 categories from protests and military attacks to peace appeals and diplomatic exchanges. Each event record details 58 fields capturing different attributes of the event; machine translation coverage of all monitored content in 65 core languages, with a sample of an additional 35 languages hand translated.
 
 As you can see, GDELT is a powerful data set.  But, what exactly is GDELT? Let's run through an introduction.
  
@@ -139,7 +140,7 @@ With the shooter neutralized, responders tended to victims and the world searche
 <hr>
 
 ### Pythonic Access to Worldwide GeoReferenced News
-In the same way that officers relied on training and teamwork to locate the shooter, we need a reliable tool to access GDELT data.  That's where <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> comes in .  <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how news events spread across the world. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. 
+In the same way that officers relied on training and teamwork to locate the shooter, <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> and GDELT work in concert to provide access to parsed worldwide news. <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a> is a minimalist Python API for GDELT services and an ideal tool to explore news events that evolve over time. Because of <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR`</a>'s global and multilingual focus, analysis can show how news events spread across the world. For detailed information on the project, visit the <a href="https://github.com/linwoodc3/gdeltPyR" target="_blank">`gdeltPyR` project page on GitHub</a>. 
 
 ### Set up Environment for Code in Tutorial
 
@@ -274,7 +275,7 @@ vegas = gd.Search(
                   )
 ```
 
-Depending on your internet connection, this could take several to tens of seconds to download. My query took 40 seconds to return 461,243 a row by 62 column dataframe that is 996.1 MB. The time to download data will be drastically reduced <a href="https://github.com/linwoodc3/gdeltPyR/issues/24" target="_blank">when `gdeltPyR` includes a direct connection to Google BigQuery.</a>  GDELT also ships data out in 15 minute intervals; if you set the `coverage` parameter to `False`, it takes 1-2 seconds to return a 2000-3000 row by 62 column dataframe. As GDELT is updated every 15 minutes, a near realtime feed would be easy to manage.
+Depending on your internet connection, this could take several to tens of seconds to download. My query took 40 seconds to return 461,243 a row by 62 column dataframe that is 996.1 MB. The time (and memory footprint) to download data will be ***drastically*** reduced <a href="https://github.com/linwoodc3/gdeltPyR/issues/24" target="_blank">when `gdeltPyR` includes a direct connection to Google BigQuery.</a>  GDELT also ships data out in 15 minute intervals; if you set the `coverage` parameter to `False`, it takes 1-2 seconds to return a 2000-3000 row by 62 column dataframe. As GDELT is updated every 15 minutes, a near realtime feed would be easy to manage.
 
 As disscussed earlier, one article can have multiple entries with different CAMEO codes.  Our goal is to use the returned metadata to filter down to the relevant records.  To see the full details on the columns/metadata, see the <a href="https://github.com/linwoodc3/gdelt2HeaderRows/blob/master/schema_csvs/GDELT_2.0_Events_Column_Labels_Header_Row_Sep2016.csv" target="_blank">schema descriptions here.</a> The most relevant columns for this post are described in the table below:
 
@@ -385,7 +386,7 @@ vegastimedfil=(vegastimed[
                                     .drop_duplicates('sourceurl') 
 print(vegastimedfil.shape)
 ---------------------
-Out: (689, 64)
+Out: (1269, 64)
 
 ```
 
@@ -481,7 +482,7 @@ While the paternal history seemed promising, comments by Eric Paddock, Stephen P
 
 Another dead end.<br><br>
 
-As the only family member speaking publicly, Eric answered questions on his brother's frame of mind, which only raised **more** questions as to why Stephen picked up the gun that Sunday night.  His answers didn't get us any closer to a motive. 
+As the only family member speaking publicly, Eric answered questions on his brother's frame of mind, which only raised <b>more</b> questions as to why Stephen picked up the gun that Sunday night.  His answers didn't get us any closer to a motive. 
 
 </i></p>
 
@@ -525,7 +526,7 @@ The response seemed totally out of touch with the man who used his modified rifl
 <p style="font-family:courier;"><i>
 Family and friend interviews answered questions about Stephen Paddock the person. But they did not answer questions about Paddock the gunman.  Overall, investigators did an admirable job piecing together the timeline of events and gathering background on the shooter.  They had information on the shooter's life, friends, financial situation, family history, and insight into where he purchased the guns. <br><br> 
 
-As the aftermath of the Las Vegas event settles, the world struggles to come to terms with what happened.  Each person or group affected has something to cope with: families mourn those who perished,  the injured begin the healing process, people close to Stephen question if they ever really knew him, survivors confront the reality of their escape from death or maiming, and everyone struggles to make sense of the whole ordeal.  The timeline of events is somewhat clear, but one glaring question remains.  <br><br> Why? <br><br>  Why did Stephen Paddock bring all those guns to his room?  Why did he snap that day? Why did he go on to commit the worst active shooter crisis in modern US history? <br><br> 
+As the aftermath of the Las Vegas event settles, the world struggles to come to terms with what happened.  Each person or group affected has something to cope with: families mourn those who died,  the injured begin the healing process, people close to Stephen question if they ever really knew him, survivors confront the reality of their escape from death or maiming, and everyone struggles to make sense of the whole ordeal.  The timeline of events is somewhat clear, but one glaring question remains.  <br><br> Why? <br><br>  Why did Stephen Paddock bring all those guns to his room?  Why did he snap that day? Why did he go on to commit the worst active shooter massacre in recent US history? <br><br> 
 
 Only time will tell.<br><br> 
 
@@ -538,15 +539,15 @@ Or worse. Perhaps we will never know.
 
 ## The Data Science Detour: Analyzing GDELT data
 
-Our narrative ended with a lot of unanswered questions about Paddock, but our code tutorial answered several questions regarding `gdeltPyR` and GDELT.  We learned GDELT is a service that monitors print, broadcast, and web news media all over the world in over 100 languages.  We also learned the `gdeltPyR` library provides a Pythonic pathway to query GDELT's parsed news data. Then, we used `gdeltPyR` to get a tidy, time-enabled data news data set about the Las Vegas event, which ultimately provided all the data to see how the event evolved. As stated, my example is trivial and focused on a U.S. problem; we could have easily picked a similar event in some remote part of the world and had similar results. 
+Our narrative ended with a lot of unanswered questions about Paddock, but our code tutorial answered several questions regarding `gdeltPyR` and GDELT.  We learned GDELT is a service that monitors print, broadcast, and web news media all over the world in over 100 languages.  We also learned the `gdeltPyR` library provides a Pythonic pathway to query GDELT's parsed news data. Then, we used `gdeltPyR` to get a tidy, time-enabled data set about the Las Vegas active shooter event, which provided enough information to see the story evolve. As stated, my example is trivial and focused on a U.S. problem; we could have easily picked a similar event in some remote part of the world, tracking news stories in any one of 100 languages, and had similar results. 
 
-Up until now, our coding was utilitarian in nature;  it was focused on defining and downloading the GDELT data we wanted.  To cross into the realm of data science, we need to extract knowledge or insights from our GDELT data that could drive a decision.  In data science, the goal is to create a data product. Data products <a href="https://www.goodreads.com/author/quotes/8647128.Benjamin_Bengfort" target="_blank">derive their value from data and generate more data by influencing human behavior or by making inferences or predictions upon new data</a>.  In this section, we use GDELT data to answer questions where the answers could be used to drive human or business decisions.  
+Up until now, our coding was utilitarian in nature;  it was focused on defining and downloading the GDELT data we wanted.  To cross into the realm of data science, we need to extract knowledge or insights from our GDELT data that could drive a decision.  In data science, the goal is to create a data product. Data products <a href="https://www.goodreads.com/author/quotes/8647128.Benjamin_Bengfort" target="_blank">derive their value from data and generate more data by influencing human behavior or by making inferences or predictions upon new data</a>.  In this section, we use GDELT data to answer questions where the answers could be used to drive human or business decisions for a client who was interested in finding the most responsive and reliable news provider for a specific city.  
 
 While reading, feel free to pause and try your solution before continuing to my solution.  These are simple questions so give it a try.  
 
 ### Question 1: Who Produced the Most Articles About the Las Vegas Active Shooter Event? 
 
-With the analytic power of Python `pandas` and <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank">regex</a>, we can identify the news source with the highest original production (unique urls).  As stated early on, one problem with GDELT is duplicates.  A parsed news article can have multiple entries that use the exact same url. Moreover, the urls are unique in that they point to specific articles.  We can use regex to strip the root URL from each record and then count occurrences.  To find our providers, we need to strip the base URL and not just use article URLs for analysis.  I wrote some regex to accomplish both. Again, we use chained operations to get our desired output in one line of code.
+With the analytic power of Python `pandas` and <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank">regex</a>, we can identify the news source with the highest original production (unique urls).  As stated early on, one problem with GDELT is duplicates.  A parsed news article can have multiple entries that use the exact same url. Moreover, the urls are unique in that they point to specific articles.  We can use regex to strip the root URL from each record and then count occurrences. I wrote some regex to accomplish both. Again, we use chained operations to get our desired output in one line of code.
 
 ```python
 import re
@@ -605,12 +606,12 @@ print(vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
 </div>
 After visiting the site, we see the name is the ***Las Vegas*** Review Journal, which explains a lot.  This is a local paper, meaning this provider is more likely to have reporters on the ground to keep its viewership/readership informed of breaking information.   
 <br>
-How can this information help drive decisions?  While anecdotal, we used analytics to identify a local news provider to keep track of major events in city.  This could be repeated for the same city to get a more statistically relevant conclusion. Moreover, this analytic could be repeated for other cities to find the local papers/providers for each city of interest.  With this information, it's possible to keep a tab on local events and how the local population perceives the events.  Finally, it's pretty interesting to find this Las Vegas paper in the midst of the generic producers.  But that leads to our next question; how many news providers did we have producing on this issue?     
+How can this information help drive decisions?  While anecdotal, we used analytics to identify a local news provider to keep track of major events in city.  This could be repeated for the same city to get a more statistically relevant conclusion. Moreover, this analytic could be repeated for other cities to find the local papers/providers for each city of interest.  With this information, it's possible to keep a tab on local events and how the local population perceives the events.  This output focused on individual production, but what about looking at how many different producers covered the story in our time frame.  That leads to our next question.  
 
 
 ### Question 2: How many unique news providers did we have producing on the  the Las Vegas Active Shooter Event? 
 
-The purpose of answering this question is to see just how wide GDELT's coverage is; does GDELT have a few sources publishing multiple stories or does are multiple sources publshing a few stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
+The purpose of answering this question is to see just how wide GDELT's coverage is; does GDELT have a few sources publishing multiple stories or are multiple sources publshing a few stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
 
 ```python
 # chained operation to return shape
@@ -621,7 +622,7 @@ vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
 ---------------------
 Out: (797,)
 ```
-GDELT pulled from 797 news sources for this Las Vegas active shooter story alone; that's out of ~1200 stories. Imagine how many providers exist for the entire day?  <br><br>This provides some evidence of GDELT's wide reaching sources. Looking at the distribution plots below, we see that most news providers wrote less than 5 news stories, with most only producing between 1 and 2 stories.  If a news provider produced 4 articles, they were in the 95th percentile.  So, all producers above this number can be considered high producers, and with the Las Vegas Review being a local paper, that's pretty impressive to be in the top 5 with global producers like Yahoo, World News, Patch, and MSN. If we were advising our clients on which news sources to use for the security situation in Las Vegas, we have a data-based reason to recommend the Review Journal over other local providers.  Of course, additional tests would make the recommendation stronger.
+GDELT pulled from 797 news sources for this Las Vegas active shooter story alone; that's out of ~1200 stories. Imagine how many providers exist for the entire day for all geographic regions and CAMEO codes?  <br><br>This provides some evidence of GDELT's wide reaching sources. Looking at the distribution plots below, we see that most news providers wrote less than 5 news stories, with most only producing between 1 and 2 stories.  If a news provider produced 4 articles, they were in the 95th percentile.  So, all producers above this number can be considered high producers, and with the Las Vegas Review being a local paper, that's pretty impressive to be in the top 5 with global producers like Yahoo, World News, Patch, and MSN. If we were advising our clients on which news sources to use for the security situation in Las Vegas, we have a data-based reason to recommend the Review Journal over other local providers.  Of course, additional tests would make the recommendation stronger.
 > These recommendations are based on GDELT processed news and not raw parsing of all news.  It's always good practice to caveat the limitations of the data and recommendations that come from your analysis of the data.
 
 Here is the distribution plot.
