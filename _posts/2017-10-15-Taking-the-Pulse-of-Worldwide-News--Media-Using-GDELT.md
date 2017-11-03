@@ -559,7 +559,7 @@ s = re.compile('(http://|https://)([A-Za-z0-9_\.-]+)')
 # apply regex to each url; strip provider; assign as new column
 print(vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
       apply(lambda x: s.search(x).group() if s.search(x) else np.nan))\
-.groupby(['provider']).size().sort_values(ascending=False).reset_index().rename(columns={0:"count"}).head())
+i.groupby(['provider']).size().sort_values(ascending=False).reset_index().rename(columns={0:"count"}).head())
 ```
 <table border="1" class="dataframe">
   <thead>
@@ -569,7 +569,7 @@ print(vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
       <th>count</th>
     </tr>
   </thead>
-  <tbody>
+i  <tbody>
     <tr>
       <th>0</th>
       <td>https://www.yahoo.com</td>
@@ -598,7 +598,7 @@ print(vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
   </tbody>
 </table>
 
-<br><br>After some research into the top URLs, you'll find <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is an interesting as top producer with `15` stories.  The other sites are world wide generic sites that likley have syndicated reporting. But <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is different.  A visit to the site and close look at the top left banner provides all the information we need.
+<br><br>After some research into the top URLs, you'll find <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is an interesting top producer with `15` stories.  The other sites are world wide generic sites that likley have syndicated reporting. But <a href="https://www.reviewjournal.com" target="_blank">`https://www.reviewjournal.com`</a> is different.  A visit to the site and close look at the top left banner provides all the information we need.
 <div class="image">
 <center><img src="{{ site.url }}/assets/img/reviewjournal.png" alt="Review Journal" ></center>
 <div><center><font size=".5"><b>Image: The Review Journal is a local paper in Las Vegas.</b> </font></center></div>
@@ -606,12 +606,12 @@ print(vegastimedfil.assign(provider=vegastimedfil.sourceurl.\
 </div>
 After visiting the site, we see the name is the ***Las Vegas*** Review Journal, which explains a lot.  This is a local paper, meaning this provider is more likely to have reporters on the ground to keep its viewership/readership informed of breaking information.   
 <br>
-How can this information help drive decisions?  While anecdotal, we used analytics to identify a local news provider to keep track of major events in city.  This could be repeated for the same city to get a more statistically relevant conclusion. Moreover, this analytic could be repeated for other cities to find the local papers/providers for each city of interest.  With this information, it's possible to keep a tab on local events and how the local population perceives the events.  This output focused on individual production, but what about looking at how many different producers covered the story in our time frame.  That leads to our next question.  
+How can this information help drive decisions?  While anecdotal, we used analytics to identify a local news provider to keep track of major events in a city.  This could be repeated for the same city to get a more statistically relevant conclusion. Moreover, this analytic could be repeated for other cities to find the local papers/providers for each city of interest.  With this information, it's possible to keep a tab on local events and how the local population perceives the events.  This output focused on individual production, but what about looking at how many different producers covered the story in our time frame.  That leads to our next question.  
 
 
 ### Question 2: How many unique news providers did we have producing on the  the Las Vegas Active Shooter Event? 
 
-The purpose of answering this question is to see just how wide GDELT's coverage is; does GDELT have a few sources publishing multiple stories or are multiple sources publshing a few stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
+The purpose of answering this question is to see just how wide GDELT's coverage is; does GDELT have a few sources publishing multiple stories or are multiple sources publishing a few stories? This question is easy to answer because of the work we did in the previous question.  Each base url counts as a unique news provider (e.g. https://www.reviewjournal.com).  GDELT gave us a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank">tidy data set</a>, so we just count up the occurrences.  
 
 ```python
 # chained operation to return shape
@@ -656,16 +656,16 @@ plt.show()
 <br>
 </div>
 
-A good number of new sources only published one or two stories; this could be for a number of reasons.  Those producers who don't have many viewers/readers in Vegas would may provide an initial report from a syndicated partner or a precursory update for a national/global audience.  In another scenario, national/global providers may wait to get resources on site to before starting a heavy reporting line on a remote topic.  The latter suggests we should expect to see a gradual rise in the number of published reports about the event as more reporters get in place. That leads to our next question, which uses time series analysis concepts.
+A good number of new sources only published one or two stories; this could be for a number of reasons.  Those producers who don't have many viewers/readers in Vegas may provide an initial report from a syndicated partner or a precursory update for a national/global audience.  In another scenario, national/global providers may wait to establish a local presence before increasing coverage.  The latter suggests we should expect to see a gradual rise in the number of published reports as more reporters get in place. That leads to our next series of questions, where our answers leverage time series analysis concepts.
 
 ### Question 3: What changes did we see in the volume of news reports about the Las Vegas active shooter event?
 
-Time series is where GDELT data shines.  GDELT processes data in equally spaced intervals (15 minutes), and we can use an exponentially weighted moving average to look at the volumetric change.  To improve the validity of the results, we will normalize the count of Las Vegas active shooter news tories in GDELT to the total count of news stories in GDELT for each 15 minute interval.  As a result, we will see our monitored value as a proporation as opposed to seeing a raw count.  For example:
+Time series is where GDELT data shines.  GDELT processes data in equally spaced intervals (15 minutes), and we can use an exponentially weighted moving average to look at the volumetric change.  To improve the validity of the results, we will normalize the count of Las Vegas active shooter news stories in GDELT to the count of all news stories for each 15 minute interval.  As a result, we will see our monitored value as a proporation as opposed to a raw count.  For example:
 *  1000 total GDELT events for one 15 minute interval
 *  100 total events in our CAMEO code of interest for the same 15 minute interval
 *  We would just divide 100/1000 to get our normalized value for the 15 minute interval
 
-Our data is time indexed to Los Angeles time. Again, I'm using chained `pandas` operations to simply the code to fewer lines. Here is the code and plot.
+Our data is time indexed to Los Angeles time. Again, I'm using chained `pandas` operations to simplify the code to fewer lines. Here is the code and plot.
 ```python
 import matplotlib.pyplot as plt
 timeseries = pd.concat([vegastimed.set_index(vegastimed.dates.astype('datetime64[ns]')).tz_localize('UTC').tz_convert('America/Los_Angeles').resample('15T')['sourceurl'].count(),vegastimedfil.set_index('zone').resample('15T')['sourceurl'].count()]
@@ -698,15 +698,15 @@ plt.show()
 <br>
 </div>
 
-As we noted early on in this post, GDELT automatically geolocated this news event to Las Vegas within 1 hour of the gunshots being fired.  While it's true that breaking news and television stations were reporting the story within minutes, it's important to note that GDELT **automatically inferred the location, CAMEO code, and actors**.  If a system is looking at multiple cities across the globe for specific events, `gdeltPyR` and GDELT can be a force multiplier when human capital and time are constraining factors. If we w 
+As we noted early on in this post, GDELT automatically geolocated this news event to Las Vegas within 1 hour of the gunshots being fired.  While it's true that breaking news and television stations were reporting the story within minutes, it's important to note that GDELT **automatically inferred the location, CAMEO code, and actors**.  If we established automated pipelines for multiple locations similar to what we implemented in this post, `gdeltPyR` and GDELT can be a force multiplier when human capital and time are constraining factors. 
 
-Speaking of time, we can explore one more time aspect of this data.
+Speaking of time, we can answer another temporal question regarding the "fastest" producer.
 
 ### Question 4: Using the GDELT processed news providers as the population, which provider produced the fastest overall?
 
-This question can be tricky, but we have all the data needed to answer the question.  We want to calculate, on average, which news provider gets stories out faster.  In a business case, the answer to this question would support the recommendations we made earlier, giving our client an added dimension to not just track the news provider who produces the most, but also the provider who is fastest on the scene when a breaking event happens.  
+This question can be tricky, but we have all the data needed to answer the question.  We want to calculate, on average, which news provider gets stories out faster.  In a business case, the answer to this question would support the recommendations we made earlier, giving our client an added dimension to not just track the news provider who produces the most content, but also the provider who is fastest on the scene when a breaking event happens.  
 
-To get an average time, we need time as an integer (<a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">epoch</a>).  The bulk of this computation will focus on converting to epoch. We are getting slightly more advanced in our wrangling/computation.  The steps we will follow are:
+To get an average time, we need time as an integer (<a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">epoch</a>).  The bulk of this computation will focus on converting to epoch. We are getting slightly more advanced in our wrangling/computation.  The steps are:
 *  Group data by news source
 *  Filter data and only keep sources that provided 3 or more original news stories
 *  Compute summary statistics (mean, max, min) over our epoch timestamps for each provider
@@ -779,7 +779,7 @@ We will close this post with a challenge to answer the most difficult question.
 # The Data Scientist Challenge
 ### Question 5: Who produces the most semantically dissimilar content?  
 
-By answering this question, and combining with all the answers from above, we could more confidently recommend a local new source to our client because we identified:
+By answering this question, and combining with all the answers from above, we could more confidently recommend a local news source to our client because we would have identified:
 
 * who produces the most
 * who produces the fastest
@@ -791,7 +791,7 @@ In totality, these answers identify the producer who is always getting the scoop
 
 The first step to answer **Question 5** is getting the content, and I'll provide the code for you.
 
-The function to scrape content works surprisingly on from *MOST* news websites. For those websites where it doesn't work (blocked, IP issues, etc.), I added exceptions and warnings to give as much information as possible.  Here is the code from my GitHub gist: 
+The function to scrape content works surprisingly on from *MOST* news websites and strips away a lot of junk. For those websites where it doesn't work (blocked, IP issues, etc.), I added exceptions and warnings to give as much information as possible.  Here is the code from my GitHub gist: 
 
 {% gist linwoodc3/e12a7fbebfa755e897697165875f8fdb %} 
 
